@@ -1,0 +1,15 @@
+{
+  "name": "kivilcim-admin-root",
+  "version": "1.0.0",
+  "description": "Root package to manage Kivilcim Admin web and server",
+  "main": "index.js",
+  "scripts": {
+    "install:all": "npm install --prefix web && npm install --prefix server",
+    "web": "npm run dev --prefix web",
+    "server": "node server/index.js",
+    "dev": "npx concurrently \"npm run web\" \"npm run server\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

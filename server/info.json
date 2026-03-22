@@ -1,0 +1,21 @@
+{
+  "Kitap Listesi": [
+    "#",
+    "Türkçe Adı",
+    "İngilizce Adı",
+    "Yazar",
+    "Yayın Yılı",
+    "Kategori"
+  ],
+  "Kategori Özeti": [
+    "Kategori",
+    "Kitap Sayısı"
+  ],
+  "Hikayeler": [
+    "Kitap No",
+    "Kitap Adı",
+    "Hikaye Başlığı",
+    "Açıklama",
+    "Hikaye Metni"
+  ]
+}
