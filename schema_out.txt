@@ -1,0 +1,4 @@
+CREATE TABLE categories (id INTEGER PRIMARY KEY AUTOINCREMENT, category_name TEXT NOT NULL, [order] INTEGER)
+
+CREATE TABLE subcategories (id INTEGER PRIMARY KEY AUTOINCREMENT, categori_id INTEGER NOT NULL, subcategory_name TEXT NOT NULL, FOREIGN KEY (categori_id) REFERENCES categories (id))
+

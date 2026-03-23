@@ -1,0 +1,3 @@
+categories
+sqlite_sequence
+subcategories

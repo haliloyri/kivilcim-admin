@@ -1,0 +1,4002 @@
+[
+  {
+    "id": 1,
+    "title": "Salı Günleri Morrie ile",
+    "author": "Mitch Albom",
+    "category": "Hayat Dersleri & Anlam Arayışı",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 2,
+    "title": "İnsanın Anlam Arayışı",
+    "author": "Viktor E. Frankl",
+    "category": "Hayat Dersleri & Anlam Arayışı",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 3,
+    "title": "Son Ders",
+    "author": "Randy Pausch",
+    "category": "Hayat Dersleri & Anlam Arayışı",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 4,
+    "title": "Nefes Olunca",
+    "author": "Paul Kalanithi",
+    "category": "Hayat Dersleri & Anlam Arayışı",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 5,
+    "title": "Cennet'te Tanışacağın Beş Kişi",
+    "author": "Mitch Albom",
+    "category": "Hayat Dersleri & Anlam Arayışı",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 6,
+    "title": "Ölümlü",
+    "author": "Atul Gawande",
+    "category": "Hayat Dersleri & Anlam Arayışı",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 7,
+    "title": "Seçim",
+    "author": "Edith Eger",
+    "category": "Hayat Dersleri & Anlam Arayışı",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 8,
+    "title": "Eğitilmiş",
+    "author": "Tara Westover",
+    "category": "Hayat Dersleri & Anlam Arayışı",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 9,
+    "title": "Bir Gün Daha",
+    "author": "Mitch Albom",
+    "category": "Hayat Dersleri & Anlam Arayışı",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 10,
+    "title": "Atomik Alışkanlıklar",
+    "author": "James Clear",
+    "category": "Alışkanlıklar & Büyüme",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 11,
+    "title": "Dönüşüm Gücü",
+    "author": "Charles Duhigg",
+    "category": "Alışkanlıklar & Büyüme",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 12,
+    "title": "Mindset",
+    "author": "Carol S. Dweck",
+    "category": "Alışkanlıklar & Büyüme",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 13,
+    "title": "Başarının Sırrı (Outliers)",
+    "author": "Malcolm Gladwell",
+    "category": "Alışkanlıklar & Büyüme",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 14,
+    "title": "Kıvılcım (The Tipping Point)",
+    "author": "Malcolm Gladwell",
+    "category": "Alışkanlıklar & Büyüme",
+    "language": "TR",
+    "in_list": true
+  },
+  {
+    "id": 15,
+    "title": "Kör Nokta (Blink)",
+    "author": "Malcolm Gladwell",
+    "category": "Alışkanlıklar & Büyüme",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 16,
+    "title": "Yabancı Tanıdıklar",
+    "author": "Malcolm Gladwell",
+    "category": "Alışkanlıklar & Büyüme",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 17,
+    "title": "Yeniden Doğmak (David and Goliath)",
+    "author": "Malcolm Gladwell",
+    "category": "Alışkanlıklar & Büyüme",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 18,
+    "title": "Simyacı",
+    "author": "Paulo Coelho",
+    "category": "Felsefe & Bilgelik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 19,
+    "title": "Dört Anlaşma",
+    "author": "Don Miguel Ruiz",
+    "category": "Felsefe & Bilgelik",
+    "language": "TR",
+    "in_list": true
+  },
+  {
+    "id": 20,
+    "title": "Küçük Prens",
+    "author": "Antoine de Saint-Exupéry",
+    "category": "Felsefe & Bilgelik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 21,
+    "title": "İkigai",
+    "author": "Héctor García & Francesc Miralles",
+    "category": "Felsefe & Bilgelik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 22,
+    "title": "Ölmeden Önce Yapılacaklar (Top Five Regrets of the Dying)",
+    "author": "Bronnie Ware",
+    "category": "Felsefe & Bilgelik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 23,
+    "title": "Yavaş Düşün Hızlı Karar Ver",
+    "author": "Daniel Kahneman",
+    "category": "Felsefe & Bilgelik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 24,
+    "title": "Sabahın Mucizesi",
+    "author": "Hal Elrod",
+    "category": "Felsefe & Bilgelik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 25,
+    "title": "İnsan Kazanma Sanatı",
+    "author": "Dale Carnegie",
+    "category": "İletişim & İlişkiler",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 26,
+    "title": "Etki",
+    "author": "Robert Cialdini",
+    "category": "İletişim & İlişkiler",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 27,
+    "title": "Asla Taviz Verme",
+    "author": "Chris Voss",
+    "category": "İletişim & İlişkiler",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 28,
+    "title": "Önemli Sohbetler (Crucial Conversations)",
+    "author": "Kerry Patterson",
+    "category": "İletişim & İlişkiler",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 29,
+    "title": "Söylemesi Zor Şeyler (Difficult Conversations)",
+    "author": "Douglas Stone",
+    "category": "İletişim & İlişkiler",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 30,
+    "title": "İyi'den Mükemmele",
+    "author": "Jim Collins",
+    "category": "Liderlik & Başarı",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 31,
+    "title": "Başlayın (Start With Why)",
+    "author": "Simon Sinek",
+    "category": "Liderlik & Başarı",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 32,
+    "title": "Sonsuz Oyun",
+    "author": "Simon Sinek",
+    "category": "Liderlik & Başarı",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 33,
+    "title": "Ayakkabı Hikayesi (Shoe Dog)",
+    "author": "Phil Knight",
+    "category": "Liderlik & Başarı",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 34,
+    "title": "Steve Jobs",
+    "author": "Walter Isaacson",
+    "category": "Liderlik & Başarı",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 35,
+    "title": "Elon Musk",
+    "author": "Walter Isaacson",
+    "category": "Liderlik & Başarı",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 36,
+    "title": "Yapabilirsin (You Can Win)",
+    "author": "Shiv Khera",
+    "category": "Motivasyon & Zihin Gücü",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 37,
+    "title": "Tavuklar İçin Çorba (Chicken Soup for the Soul)",
+    "author": "Jack Canfield & Mark V. Hansen",
+    "category": "Motivasyon & Zihin Gücü",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 38,
+    "title": "Keşiş Ferrari'sini Sattı (The Monk Who Sold His Ferrari)",
+    "author": "Robin Sharma",
+    "category": "Motivasyon & Zihin Gücü",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 39,
+    "title": "Dev Adımlar (Awaken the Giant Within)",
+    "author": "Tony Robbins",
+    "category": "Motivasyon & Zihin Gücü",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 40,
+    "title": "Cam Kale (The Glass Castle)",
+    "author": "Jeannette Walls",
+    "category": "Farklı Dünyalardan Hayat Hikayeleri",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 41,
+    "title": "Nefes Al (Wild)",
+    "author": "Cheryl Strayed",
+    "category": "Farklı Dünyalardan Hayat Hikayeleri",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 42,
+    "title": "Genç Şaire Mektuplar",
+    "author": "Rainer Maria Rilke",
+    "category": "Farklı Dünyalardan Hayat Hikayeleri",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 43,
+    "title": "Uzun Yürüyüş (Long Walk to Freedom)",
+    "author": "Nelson Mandela",
+    "category": "Farklı Dünyalardan Hayat Hikayeleri",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 44,
+    "title": "Ben Malala",
+    "author": "Malala Yousafzai",
+    "category": "Farklı Dünyalardan Hayat Hikayeleri",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 45,
+    "title": "Gece Yarısı Kütüphanesi",
+    "author": "Matt Haig",
+    "category": "Motivasyon & Zihin Gücü",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 46,
+    "title": "Sıfır'dan Bire (Zero to One)",
+    "author": "Peter Thiel",
+    "category": "İş & Girişimcilik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 47,
+    "title": "Mutluluk Hipotezi",
+    "author": "Jonathan Haidt",
+    "category": "Psikoloji & Beyin",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 48,
+    "title": "Akış (Flow)",
+    "author": "Mihaly Csikszentmihalyi",
+    "category": "Psikoloji & Beyin",
+    "language": "TR",
+    "in_list": true
+  },
+  {
+    "id": 49,
+    "title": "Sessizce Güçlü (Quiet)",
+    "author": "Susan Cain",
+    "category": "Psikoloji & Beyin",
+    "language": "TR",
+    "in_list": true
+  },
+  {
+    "id": 50,
+    "title": "Duygusal Zeka",
+    "author": "Daniel Goleman",
+    "category": "Psikoloji & Beyin",
+    "language": "TR",
+    "in_list": true
+  },
+  {
+    "id": 51,
+    "title": "Engel Yoldur (The Obstacle Is the Way)",
+    "author": "Ryan Holiday",
+    "category": "Stoacılık & Antik Bilgelik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 52,
+    "title": "Ego Düşmandır",
+    "author": "Ryan Holiday",
+    "category": "Stoacılık & Antik Bilgelik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 53,
+    "title": "Günlük Stoacı",
+    "author": "Ryan Holiday & Stephen Hanselman",
+    "category": "Stoacılık & Antik Bilgelik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 54,
+    "title": "Cesaret Çağrısıdır (Courage Is Calling)",
+    "author": "Ryan Holiday",
+    "category": "Stoacılık & Antik Bilgelik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 55,
+    "title": "Disiplin Kaderdir (Discipline Is Destiny)",
+    "author": "Ryan Holiday",
+    "category": "Stoacılık & Antik Bilgelik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 56,
+    "title": "Düşünceler (Meditations)",
+    "author": "Marcus Aurelius",
+    "category": "Stoacılık & Antik Bilgelik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 57,
+    "title": "Ahlak Mektupları (Letters from a Stoic)",
+    "author": "Seneca",
+    "category": "Stoacılık & Antik Bilgelik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 58,
+    "title": "Söylemler (Discourses)",
+    "author": "Epiktetos",
+    "category": "Stoacılık & Antik Bilgelik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 59,
+    "title": "İyi Yaşamın Rehberi",
+    "author": "William B. Irvine",
+    "category": "Stoacılık & Antik Bilgelik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 60,
+    "title": "Stoacı Gibi Düşün",
+    "author": "Donald J. Robertson",
+    "category": "Stoacılık & Antik Bilgelik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 61,
+    "title": "Tahmin Edilemez (Predictably Irrational)",
+    "author": "Dan Ariely",
+    "category": "Psikoloji & Beyin",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 62,
+    "title": "Sosyal Hayvan (The Social Animal)",
+    "author": "David Brooks",
+    "category": "Psikoloji & Beyin",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 63,
+    "title": "İnsanların Oynadığı Oyunlar",
+    "author": "Eric Berne",
+    "category": "Psikoloji & Beyin",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 64,
+    "title": "Happiness Advantage",
+    "author": "Shawn Achor",
+    "category": "Psikoloji & Beyin",
+    "language": "EN",
+    "in_list": false
+  },
+  {
+    "id": 65,
+    "title": "İyimser Olmayı Öğrenmek",
+    "author": "Martin Seligman",
+    "category": "Psikoloji & Beyin",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 66,
+    "title": "Gerçeklik Yanılgısı (Factfulness)",
+    "author": "Hans Rosling",
+    "category": "Veri & Gerçeklerle İlham",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 67,
+    "title": "Freakonomics",
+    "author": "Steven D. Levitt & Stephen J. Dubner",
+    "category": "Veri & Gerçeklerle İlham",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 68,
+    "title": "Düşün ve Zengin Ol",
+    "author": "Napoleon Hill",
+    "category": "Veri & Gerçeklerle İlham",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 69,
+    "title": "Olumlu Düşüncenin Gücü",
+    "author": "Norman Vincent Peale",
+    "category": "Veri & Gerçeklerle İlham",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 70,
+    "title": "Endişeyi Bırak Yaşamaya Bak",
+    "author": "Dale Carnegie",
+    "category": "Veri & Gerçeklerle İlham",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 71,
+    "title": "Hard Things about Hard Things",
+    "author": "Ben Horowitz",
+    "category": "İş & Girişimcilik",
+    "language": "EN",
+    "in_list": false
+  },
+  {
+    "id": 72,
+    "title": "Delivering Happiness",
+    "author": "Tony Hsieh",
+    "category": "İş & Girişimcilik",
+    "language": "EN",
+    "in_list": false
+  },
+  {
+    "id": 73,
+    "title": "Prensipleri (Principles)",
+    "author": "Ray Dalio",
+    "category": "İş & Girişimcilik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 74,
+    "title": "4 Saatlik İş Haftası",
+    "author": "Tim Ferriss",
+    "category": "İş & Girişimcilik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 75,
+    "title": "Hit Refresh",
+    "author": "Satya Nadella",
+    "category": "İş & Girişimcilik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 76,
+    "title": "İnovatörlerin Hikayesi (The Innovators)",
+    "author": "Walter Isaacson",
+    "category": "İş & Girişimcilik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 77,
+    "title": "Losing My Virginity",
+    "author": "Richard Branson",
+    "category": "İş & Girişimcilik",
+    "language": "EN",
+    "in_list": false
+  },
+  {
+    "id": 78,
+    "title": "Büyük Sihir (Big Magic)",
+    "author": "Elizabeth Gilbert",
+    "category": "Yaratıcılık & İfade",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 79,
+    "title": "Kuş Kuş (Bird by Bird)",
+    "author": "Anne Lamott",
+    "category": "Yaratıcılık & İfade",
+    "language": "TR",
+    "in_list": true
+  },
+  {
+    "id": 80,
+    "title": "Yaratıcı Eylem (The Creative Act)",
+    "author": "Rick Rubin",
+    "category": "Yaratıcılık & İfade",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 81,
+    "title": "Olasılık Sanatı (The Art of Possibility)",
+    "author": "Rosamund & Benjamin Zander",
+    "category": "Yaratıcılık & İfade",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 82,
+    "title": "Çalmayı Öğren (Steal Like an Artist)",
+    "author": "Austin Kleon",
+    "category": "Yaratıcılık & İfade",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 83,
+    "title": "Paylaş (Show Your Work)",
+    "author": "Austin Kleon",
+    "category": "Yaratıcılık & İfade",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 84,
+    "title": "Beni Yaralayamazsın (Can't Hurt Me)",
+    "author": "David Goggins",
+    "category": "Dayanıklılık & Zihinsel Güç",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 85,
+    "title": "Yatağını Topla (Make Your Bed)",
+    "author": "William McRaven",
+    "category": "Dayanıklılık & Zihinsel Güç",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 86,
+    "title": "Kırılgan (Daring Greatly)",
+    "author": "Brené Brown",
+    "category": "Dayanıklılık & Zihinsel Güç",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 87,
+    "title": "Güçten Yükselmek (Rising Strong)",
+    "author": "Brené Brown",
+    "category": "Dayanıklılık & Zihinsel Güç",
+    "language": "TR",
+    "in_list": true
+  },
+  {
+    "id": 88,
+    "title": "Şimdinin Gücü (The Power of Now)",
+    "author": "Eckhart Tolle",
+    "category": "Sağlık & Huzur & Farkındalık",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 89,
+    "title": "Dağ Sensin",
+    "author": "Brianna Wiest",
+    "category": "Sağlık & Huzur & Farkındalık",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 90,
+    "title": "Merhaba Kaygı (Notes on a Nervous Planet)",
+    "author": "Matt Haig",
+    "category": "Sağlık & Huzur & Farkındalık",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 91,
+    "title": "Neden Uyuruz (Why We Sleep)",
+    "author": "Matthew Walker",
+    "category": "Sağlık & Huzur & Farkındalık",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 92,
+    "title": "Atom Kadar Küçük Adımlar (Tiny Habits)",
+    "author": "BJ Fogg",
+    "category": "Sağlık & Huzur & Farkındalık",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 93,
+    "title": "Ustalık (Mastery)",
+    "author": "Robert Greene",
+    "category": "Öğrenme & Zeka",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 94,
+    "title": "Derin İş (Deep Work)",
+    "author": "Cal Newport",
+    "category": "Öğrenme & Zeka",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 95,
+    "title": "Dijital Minimalizm",
+    "author": "Cal Newport",
+    "category": "Öğrenme & Zeka",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 96,
+    "title": "Ultra Öğrenen (Ultralearning)",
+    "author": "Scott H. Young",
+    "category": "Öğrenme & Zeka",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 97,
+    "title": "Peak",
+    "author": "Anders Ericsson & Robert Pool",
+    "category": "Öğrenme & Zeka",
+    "language": "EN",
+    "in_list": false
+  },
+  {
+    "id": 98,
+    "title": "Yetenekli Olmanın Kodu (The Talent Code)",
+    "author": "Daniel Coyle",
+    "category": "Öğrenme & Zeka",
+    "language": "TR",
+    "in_list": true
+  },
+  {
+    "id": 99,
+    "title": "Sapiens",
+    "author": "Yuval Noah Harari",
+    "category": "Vizyon & Dünyayı Anlama",
+    "language": "TR",
+    "in_list": true
+  },
+  {
+    "id": 100,
+    "title": "Homo Deus",
+    "author": "Yuval Noah Harari",
+    "category": "Vizyon & Dünyayı Anlama",
+    "language": "TR",
+    "in_list": true
+  },
+  {
+    "id": 101,
+    "title": "Radikal Kabul (Radical Acceptance)",
+    "author": "Tara Brach",
+    "category": "Farkındalık & İç Huzur",
+    "language": "TR",
+    "in_list": true
+  },
+  {
+    "id": 102,
+    "title": "Her Şey Dağıldığında (When Things Fall Apart)",
+    "author": "Pema Chödrön",
+    "category": "Farkındalık & İç Huzur",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 103,
+    "title": "Mutluluğun Sanatı",
+    "author": "Dalai Lama & Howard C. Cutler",
+    "category": "Farkındalık & İç Huzur",
+    "language": "TR",
+    "in_list": true
+  },
+  {
+    "id": 104,
+    "title": "Yeni Dünya (A New Earth)",
+    "author": "Eckhart Tolle",
+    "category": "Farkındalık & İç Huzur",
+    "language": "TR",
+    "in_list": true
+  },
+  {
+    "id": 105,
+    "title": "Kendine Yabancı (The Wisdom of Insecurity)",
+    "author": "Alan Watts",
+    "category": "Farkındalık & İç Huzur",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 106,
+    "title": "Kitap (The Book)",
+    "author": "Alan Watts",
+    "category": "Farkındalık & İç Huzur",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 107,
+    "title": "Yavaşla Sevin (Things You Can See Only When You Slow Down)",
+    "author": "Haemin Sunim",
+    "category": "Farkındalık & İç Huzur",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 108,
+    "title": "İşler Yolunda Gitmediğinde",
+    "author": "Haemin Sunim",
+    "category": "Farkındalık & İç Huzur",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 109,
+    "title": "Sevincin Kitabı (The Book of Joy)",
+    "author": "Dalai Lama & Desmond Tutu",
+    "category": "Umut & Sevinç",
+    "language": "TR",
+    "in_list": true
+  },
+  {
+    "id": 110,
+    "title": "Armağan (The Gift)",
+    "author": "Edith Eger",
+    "category": "Umut & Sevinç",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 111,
+    "title": "Kışın Güzelliği (Wintering)",
+    "author": "Katherine May",
+    "category": "Umut & Sevinç",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 112,
+    "title": "Sevinç Bilimi (Joyful)",
+    "author": "Ingrid Fetell Lee",
+    "category": "Umut & Sevinç",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 113,
+    "title": "Lincoln (Team of Rivals)",
+    "author": "Doris Kearns Goodwin",
+    "category": "Tarih & Büyük İnsanlar",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 114,
+    "title": "Gandhi",
+    "author": "Louis Fischer",
+    "category": "Tarih & Büyük İnsanlar",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 115,
+    "title": "Einstein",
+    "author": "Walter Isaacson",
+    "category": "Tarih & Büyük İnsanlar",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 116,
+    "title": "Leonardo da Vinci",
+    "author": "Walter Isaacson",
+    "category": "Tarih & Büyük İnsanlar",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 117,
+    "title": "Benjamin Franklin",
+    "author": "Walter Isaacson",
+    "category": "Tarih & Büyük İnsanlar",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 118,
+    "title": "Rüyalar'dan (Dreams from My Father)",
+    "author": "Barack Obama",
+    "category": "Tarih & Büyük İnsanlar",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 119,
+    "title": "Feynman'ın Şakalarına İnanır mısınız? (Surely You're Joking, Mr. Feynman)",
+    "author": "Richard Feynman",
+    "category": "Bilim & Merak",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 120,
+    "title": "Kısa Tarih (A Short History of Nearly Everything)",
+    "author": "Bill Bryson",
+    "category": "Bilim & Merak",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 121,
+    "title": "Kanser (The Emperor of All Maladies)",
+    "author": "Siddhartha Mukherjee",
+    "category": "Bilim & Merak",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 122,
+    "title": "Zengin Baba Yoksul Baba",
+    "author": "Robert Kiyosaki",
+    "category": "Para & Özgürlük",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 123,
+    "title": "Millionaire Fastlane",
+    "author": "M.J. DeMarco",
+    "category": "Para & Özgürlük",
+    "language": "EN",
+    "in_list": false
+  },
+  {
+    "id": 124,
+    "title": "Para (Money: Master the Game)",
+    "author": "Tony Robbins",
+    "category": "Para & Özgürlük",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 125,
+    "title": "Paranın Psikolojisi (The Psychology of Money)",
+    "author": "Morgan Housel",
+    "category": "Para & Özgürlük",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 126,
+    "title": "Savaş Sanatı (The War of Art)",
+    "author": "Steven Pressfield",
+    "category": "Yazı & Yaratıcılık",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 127,
+    "title": "Yazı Üzerine (On Writing)",
+    "author": "Stephen King",
+    "category": "Yazı & Yaratıcılık",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 128,
+    "title": "Hikayenin Anatomisi (Story)",
+    "author": "Robert McKee",
+    "category": "Yazı & Yaratıcılık",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 129,
+    "title": "Seninle Başlıyor (Find Your Why)",
+    "author": "Simon Sinek",
+    "category": "Amaç & Değerler",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 130,
+    "title": "İkinci Dağ (The Second Mountain)",
+    "author": "David Brooks",
+    "category": "Amaç & Değerler",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 131,
+    "title": "Karakter Yolu (The Road to Character)",
+    "author": "David Brooks",
+    "category": "Amaç & Değerler",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 132,
+    "title": "Hayatın Anlamı (The Will to Meaning)",
+    "author": "Viktor Frankl",
+    "category": "Amaç & Değerler",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 133,
+    "title": "Mitoloji (The Power of Myth)",
+    "author": "Joseph Campbell & Bill Moyers",
+    "category": "Amaç & Değerler",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 134,
+    "title": "Ruhun Bilgeliği (Care of the Soul)",
+    "author": "Thomas Moore",
+    "category": "Amaç & Değerler",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 135,
+    "title": "Başkalarını Düşün (Give and Take)",
+    "author": "Adam Grant",
+    "category": "Toplum & Bağlantı",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 136,
+    "title": "Orijinaller (Originals)",
+    "author": "Adam Grant",
+    "category": "Toplum & Bağlantı",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 137,
+    "title": "Seçenek B (Option B)",
+    "author": "Sheryl Sandberg & Adam Grant",
+    "category": "Toplum & Bağlantı",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 138,
+    "title": "Öne Çık (Lean In)",
+    "author": "Sheryl Sandberg",
+    "category": "Toplum & Bağlantı",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 139,
+    "title": "Empati Sanatı (Empathy)",
+    "author": "Roman Krznaric",
+    "category": "Toplum & Bağlantı",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 140,
+    "title": "Topluluk Anatomisi (Tribe)",
+    "author": "Sebastian Junger",
+    "category": "Toplum & Bağlantı",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 141,
+    "title": "Jonathan Livingston Martı",
+    "author": "Richard Bach",
+    "category": "Farklı Kültürlerden İlham",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 142,
+    "title": "Uçurtma Avcısı (The Kite Runner)",
+    "author": "Khaled Hosseini",
+    "category": "Farklı Kültürlerden İlham",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 143,
+    "title": "Bin Muhteşem Güneş",
+    "author": "Khaled Hosseini",
+    "category": "Farklı Kültürlerden İlham",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 144,
+    "title": "Ve Dağlar Yankılandı",
+    "author": "Khaled Hosseini",
+    "category": "Farklı Kültürlerden İlham",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 145,
+    "title": "Kimlik",
+    "author": "Amin Maalouf",
+    "category": "Farklı Kültürlerden İlham",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 146,
+    "title": "Veronika Ölmek İstiyor",
+    "author": "Paulo Coelho",
+    "category": "Farklı Kültürlerden İlham",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 147,
+    "title": "Zahir",
+    "author": "Paulo Coelho",
+    "category": "Farklı Kültürlerden İlham",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 148,
+    "title": "Şeytan ve Bayan Prym",
+    "author": "Paulo Coelho",
+    "category": "Farklı Kültürlerden İlham",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 149,
+    "title": "7 Alışkanlık (The 7 Habits of Highly Effective People)",
+    "author": "Stephen R. Covey",
+    "category": "Klasikler",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 150,
+    "title": "Sonsuz Başarı (The Greatest Salesman in the World)",
+    "author": "Og Mandino",
+    "category": "Klasikler",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 151,
+    "title": "Esansiyalizm (Essentialism)",
+    "author": "Greg McKeown",
+    "category": "Üretkenlik & Odak",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 152,
+    "title": "Tek Şey (The ONE Thing)",
+    "author": "Gary Keller & Jay Papasan",
+    "category": "Üretkenlik & Odak",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 153,
+    "title": "Her Şeye Dur De (Effortless)",
+    "author": "Greg McKeown",
+    "category": "Üretkenlik & Odak",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 154,
+    "title": "İyi Hisset Üretkenliği (Feel-Good Productivity)",
+    "author": "Ali Abdaal",
+    "category": "Üretkenlik & Odak",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 155,
+    "title": "Beş Saniye Kuralı (The 5 Second Rule)",
+    "author": "Mel Robbins",
+    "category": "Üretkenlik & Odak",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 156,
+    "title": "Irça (Grit)",
+    "author": "Angela Duckworth",
+    "category": "İrade & Karakter",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 157,
+    "title": "İrade Gücü (Willpower)",
+    "author": "Roy F. Baumeister & John Tierney",
+    "category": "İrade & Karakter",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 158,
+    "title": "Korkuyu Hisset Yine de Yap",
+    "author": "Susan Jeffers",
+    "category": "İrade & Karakter",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 159,
+    "title": "Öz Şefkat (Self-Compassion)",
+    "author": "Kristin Neff",
+    "category": "Büyüme & Öz Şefkat",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 160,
+    "title": "Güçten Büyümek (From Strength to Strength)",
+    "author": "Arthur C. Brooks",
+    "category": "Büyüme & Öz Şefkat",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 161,
+    "title": "101 Makale (101 Essays That Will Change the Way You Think)",
+    "author": "Brianna Wiest",
+    "category": "Büyüme & Öz Şefkat",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 162,
+    "title": "Duygularına İzin Ver (Permission to Feel)",
+    "author": "Marc Brackett",
+    "category": "Büyüme & Öz Şefkat",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 163,
+    "title": "48 Güç Yasası (The 48 Laws of Power)",
+    "author": "Robert Greene",
+    "category": "Vizyon & Strateji",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 164,
+    "title": "Savaş Sanatı (The Art of War)",
+    "author": "Sun Tzu",
+    "category": "Vizyon & Strateji",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 165,
+    "title": "Günlük Yasalar (The Daily Laws)",
+    "author": "Robert Greene",
+    "category": "Vizyon & Strateji",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 166,
+    "title": "İnsan Doğası Yasaları (The Laws of Human Nature)",
+    "author": "Robert Greene",
+    "category": "Vizyon & Strateji",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 167,
+    "title": "Yeniden Düşün (Think Again)",
+    "author": "Adam Grant",
+    "category": "Toplum & Bağlantı",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 168,
+    "title": "Gizli Potansiyel (Hidden Potential)",
+    "author": "Adam Grant",
+    "category": "Toplum & Bağlantı",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 169,
+    "title": "Aşkı Aramak (All About Love)",
+    "author": "bell hooks",
+    "category": "Toplum & Bağlantı",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 170,
+    "title": "Tao Te Ching",
+    "author": "Lao Tzu",
+    "category": "Doğu Felsefesi & Hikmet",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 171,
+    "title": "Zen ve Motosiklet Bakım Sanatı",
+    "author": "Robert M. Pirsig",
+    "category": "Doğu Felsefesi & Hikmet",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 172,
+    "title": "Yavaşla (In Praise of Slowness)",
+    "author": "Carl Honoré",
+    "category": "Doğu Felsefesi & Hikmet",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 173,
+    "title": "Düşünceni Söyle (Radical Candor)",
+    "author": "Kim Scott",
+    "category": "Konuşma & Sosyal Zeka",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 174,
+    "title": "Hayır Diyebilmek (The Power of a Positive No)",
+    "author": "William Ury",
+    "category": "Konuşma & Sosyal Zeka",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 175,
+    "title": "Einstein ile Yürümek (Moonwalking with Einstein)",
+    "author": "Joshua Foer",
+    "category": "Öğrenme & Hafıza",
+    "language": "TR",
+    "in_list": true
+  },
+  {
+    "id": 176,
+    "title": "Zihin Atlası (A Mind for Numbers)",
+    "author": "Barbara Oakley",
+    "category": "Öğrenme & Hafıza",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 177,
+    "title": "Meraklı Zihin (A Curious Mind)",
+    "author": "Brian Grazer & Charles Fishman",
+    "category": "Öğrenme & Hafıza",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 178,
+    "title": "Sınır Ötesi (Range)",
+    "author": "David Epstein",
+    "category": "Öğrenme & Hafıza",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 179,
+    "title": "Bomba Yapımcısı (The Bomber Mafia)",
+    "author": "Malcolm Gladwell",
+    "category": "Vizyon & Dünyayı Anlama",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 180,
+    "title": "Hayatın Terapisti (Staring at the Sun)",
+    "author": "Irvin Yalom",
+    "category": "Ruh & Anlam & Vicdan",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 181,
+    "title": "Ruhun Doktoru (Love's Executioner)",
+    "author": "Irvin D. Yalom",
+    "category": "Ruh & Anlam & Vicdan",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 182,
+    "title": "Yaşamanın Sanatı (The Art of Living)",
+    "author": "Epiktetos",
+    "category": "Stoacılık & Antik Bilgelik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 183,
+    "title": "Her Şey Geçer (When Bad Things Happen to Good People)",
+    "author": "Harold Kushner",
+    "category": "Ruh & Anlam & Vicdan",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 184,
+    "title": "Evcilleşmemiş (Untamed)",
+    "author": "Glennon Doyle",
+    "category": "Özgünlük & Kendini Bulma",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 185,
+    "title": "Yemek, Dua Et, Sev",
+    "author": "Elizabeth Gilbert",
+    "category": "Özgünlük & Kendini Bulma",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 186,
+    "title": "Sen Bir Pislik Olabilirsin (You Are a Badass)",
+    "author": "Jen Sincero",
+    "category": "Özgünlük & Kendini Bulma",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 187,
+    "title": "Oprah'nın Bildikleri (What I Know For Sure)",
+    "author": "Oprah Winfrey",
+    "category": "Özgünlük & Kendini Bulma",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 188,
+    "title": "İçimdeki Ses (The Untethered Soul)",
+    "author": "Michael A. Singer",
+    "category": "Özgünlük & Kendini Bulma",
+    "language": "TR",
+    "in_list": true
+  },
+  {
+    "id": 189,
+    "title": "Teslimiyet Deneyi (The Surrender Experiment)",
+    "author": "Michael A. Singer",
+    "category": "Özgünlük & Kendini Bulma",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 190,
+    "title": "Evrenin Desteği (The Universe Has Your Back)",
+    "author": "Gabrielle Bernstein",
+    "category": "Özgünlük & Kendini Bulma",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 191,
+    "title": "Duyguların Atlası (Atlas of the Heart)",
+    "author": "Brené Brown",
+    "category": "Psikoloji & Beyin",
+    "language": "TR",
+    "in_list": true
+  },
+  {
+    "id": 192,
+    "title": "Korkusuz Organizasyon (The Fearless Organization)",
+    "author": "Amy Edmondson",
+    "category": "İş & Girişimcilik",
+    "language": "TR",
+    "in_list": true
+  },
+  {
+    "id": 193,
+    "title": "Antikırılgan (Antifragile)",
+    "author": "Nassim Nicholas Taleb",
+    "category": "Vizyon & Strateji",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 194,
+    "title": "Kara Kuğu (The Black Swan)",
+    "author": "Nassim Nicholas Taleb",
+    "category": "Vizyon & Strateji",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 195,
+    "title": "Tesadüf Aldatmacası (Fooled by Randomness)",
+    "author": "Nassim Nicholas Taleb",
+    "category": "Vizyon & Strateji",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 196,
+    "title": "Sistem Tuzakları (Thinking in Systems)",
+    "author": "Donella Meadows",
+    "category": "Sistem Düşüncesi",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 197,
+    "title": "Kaos (Chaos)",
+    "author": "James Gleick",
+    "category": "Sistem Düşüncesi",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 198,
+    "title": "Bağlantı Noktaları (Linked)",
+    "author": "Albert-László Barabási",
+    "category": "Sistem Düşüncesi",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 199,
+    "title": "Doğanın İcadı (The Invention of Nature)",
+    "author": "Andrea Wulf",
+    "category": "Tarih & Büyük İnsanlar",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 200,
+    "title": "Frida Kahlo",
+    "author": "Hayden Herrera",
+    "category": "Tarih & Büyük İnsanlar",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 201,
+    "title": "Dolaşan Zihin (The World Beyond Your Head)",
+    "author": "Matthew Crawford",
+    "category": "Zihin & Bilinç",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 202,
+    "title": "Zamanın Düzeni (The Order of Time)",
+    "author": "Carlo Rovelli",
+    "category": "Zihin & Bilinç",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 203,
+    "title": "Yedi Kısa Fizik Dersi",
+    "author": "Carlo Rovelli",
+    "category": "Zihin & Bilinç",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 204,
+    "title": "Karısını Şapka Sanan Adam (The Man Who Mistook His Wife for a Hat)",
+    "author": "Oliver Sacks",
+    "category": "Zihin & Bilinç",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 205,
+    "title": "Hareket Halinde (On the Move)",
+    "author": "Oliver Sacks",
+    "category": "Zihin & Bilinç",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 206,
+    "title": "Konforu Kitabı (The Comfort Book)",
+    "author": "Matt Haig",
+    "category": "Sevinç & Şükran",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 207,
+    "title": "Mutluluğun Kimyası (Habits of a Happy Brain)",
+    "author": "Loretta Graziano Breuning",
+    "category": "Sevinç & Şükran",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 208,
+    "title": "Şükranın Gücü (Thanks!)",
+    "author": "Robert A. Emmons",
+    "category": "Sevinç & Şükran",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 209,
+    "title": "İyi Hissetmek (Feeling Good)",
+    "author": "David D. Burns",
+    "category": "Sevinç & Şükran",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 210,
+    "title": "Ruhun Yolu (The Road Less Traveled)",
+    "author": "M. Scott Peck",
+    "category": "Maneviyat & Anlam",
+    "language": "TR",
+    "in_list": true
+  },
+  {
+    "id": 211,
+    "title": "Azdan Çok (The Pilgrimage)",
+    "author": "Paulo Coelho",
+    "category": "Maneviyat & Anlam",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 212,
+    "title": "Beşinci Anlaşma (The Fifth Agreement)",
+    "author": "don Miguel Ruiz",
+    "category": "Maneviyat & Anlam",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 213,
+    "title": "Yaşayan Buda Yaşayan Mesih",
+    "author": "Thich Nhat Hanh",
+    "category": "Maneviyat & Anlam",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 214,
+    "title": "Amerikanah",
+    "author": "Chimamanda Ngozi Adichie",
+    "category": "Modern Hayat & Kimlik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 215,
+    "title": "Hepimiz Feminist Olmalıyız (We Should All Be Feminists)",
+    "author": "Chimamanda Ngozi Adichie",
+    "category": "Modern Hayat & Kimlik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 216,
+    "title": "Mor Hibiskus (Purple Hibiscus)",
+    "author": "Chimamanda Ngozi Adichie",
+    "category": "Modern Hayat & Kimlik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 217,
+    "title": "Öğrenmenin Bilimi (Make It Stick)",
+    "author": "Peter C. Brown",
+    "category": "Öğrenme & Hafıza",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 218,
+    "title": "Kültür Kodu (The Culture Code)",
+    "author": "Daniel Coyle",
+    "category": "İş & Girişimcilik",
+    "language": "TR",
+    "in_list": true
+  },
+  {
+    "id": 219,
+    "title": "Yetenek Efsanesi (Talent Is Overrated)",
+    "author": "Geoff Colvin",
+    "category": "Öğrenme & Hafıza",
+    "language": "TR",
+    "in_list": true
+  },
+  {
+    "id": 220,
+    "title": "Yapışkan Fikirler (Made to Stick)",
+    "author": "Chip & Dan Heath",
+    "category": "Pazarlama & Fikir Yayma",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 221,
+    "title": "Değişim (Switch)",
+    "author": "Chip & Dan Heath",
+    "category": "Değişim Psikolojisi",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 222,
+    "title": "Anın Gücü (The Power of Moments)",
+    "author": "Chip & Dan Heath",
+    "category": "Değişim Psikolojisi",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 223,
+    "title": "Thoreau'nun Göleti (Walden)",
+    "author": "Henry David Thoreau",
+    "category": "Doğa & Yavaşlık",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 224,
+    "title": "Ormanın Sesi (Braiding Sweetgrass)",
+    "author": "Robin Wall Kimmerer",
+    "category": "Doğa & Yavaşlık",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 225,
+    "title": "Doğanın Tedavisi (The Nature Fix)",
+    "author": "Florence Williams",
+    "category": "Doğa & Yavaşlık",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 226,
+    "title": "Odaklan ve Kazan (Focus)",
+    "author": "Daniel Goleman",
+    "category": "Zihin & Öğrenme",
+    "language": "TR",
+    "in_list": true
+  },
+  {
+    "id": 227,
+    "title": "Sosyal Beyin (Social)",
+    "author": "Matthew Lieberman",
+    "category": "Psikoloji & Beyin",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 228,
+    "title": "Yukarı Spiral (The Upward Spiral)",
+    "author": "Alex Korb",
+    "category": "Değişim Psikolojisi",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 229,
+    "title": "Mamba Zihniyeti (The Mamba Mentality)",
+    "author": "Kobe Bryant",
+    "category": "Spor & Zihin",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 230,
+    "title": "Açık (Open)",
+    "author": "Andre Agassi",
+    "category": "Spor & Zihin",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 231,
+    "title": "Savaşçı (Relentless)",
+    "author": "Tim S. Grover",
+    "category": "Spor & Zihin",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 232,
+    "title": "Kazan (Winning)",
+    "author": "Tim S. Grover",
+    "category": "Spor & Zihin",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 233,
+    "title": "Dikkat Dağıtıcı Dünya (Indistractable)",
+    "author": "Nir Eyal",
+    "category": "Teknoloji & İnsan",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 234,
+    "title": "Bağımlılık Tasarımı (Hooked)",
+    "author": "Nir Eyal",
+    "category": "Teknoloji & İnsan",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 235,
+    "title": "Yapay Zeka Çağı (AI Superpowers)",
+    "author": "Kai-Fu Lee",
+    "category": "Teknoloji & İnsan",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 236,
+    "title": "İnşa Et (Build)",
+    "author": "Tony Fadell",
+    "category": "İş & Girişimcilik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 237,
+    "title": "Benim Hikayem (Becoming)",
+    "author": "Michelle Obama",
+    "category": "Kadın Sesleri & Güçlenme",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 238,
+    "title": "Büyük Hedefler (Measure What Matters)",
+    "author": "John Doerr",
+    "category": "Hedef & Niyet",
+    "language": "TR",
+    "in_list": true
+  },
+  {
+    "id": 239,
+    "title": "12 Haftalık Yıl (The 12 Week Year)",
+    "author": "Brian P. Moran",
+    "category": "Hedef & Niyet",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 240,
+    "title": "Senin En İyi Yılın (Your Best Year Ever)",
+    "author": "Michael Hyatt",
+    "category": "Hedef & Niyet",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 241,
+    "title": "Nasıl İnşa Ettim (How I Built This)",
+    "author": "Guy Raz",
+    "category": "İş & Girişimcilik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 242,
+    "title": "Naval Almanak (The Almanack of Naval Ravikant)",
+    "author": "Eric Jorgenson",
+    "category": "İş & Girişimcilik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 243,
+    "title": "E-Myth Revisited",
+    "author": "Michael E. Gerber",
+    "category": "İş & Girişimcilik",
+    "language": "EN",
+    "in_list": false
+  },
+  {
+    "id": 244,
+    "title": "Milyon Dolarlık Hafta Sonu (Million Dollar Weekend)",
+    "author": "Noah Kagan",
+    "category": "İş & Girişimcilik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 245,
+    "title": "Zamanını Geri Al (Buy Back Your Time)",
+    "author": "Dan Martell",
+    "category": "İş & Girişimcilik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 246,
+    "title": "Makul Olmayan Misafirperverlik (Unreasonable Hospitality)",
+    "author": "Will Guidara",
+    "category": "İş & Girişimcilik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 247,
+    "title": "Yalın Girişim (The Lean Startup)",
+    "author": "Eric Ries",
+    "category": "İş & Girişimcilik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 248,
+    "title": "Traction",
+    "author": "Gabriel Weinberg & Justin Mares",
+    "category": "İş & Girişimcilik",
+    "language": "EN",
+    "in_list": true
+  },
+  {
+    "id": 249,
+    "title": "Küçükten Büyüğe (Rework)",
+    "author": "Jason Fried & DHH",
+    "category": "İş & Girişimcilik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 250,
+    "title": "Kurallara Gerek Yok (No Rules Rules)",
+    "author": "Reed Hastings & Erin Meyer",
+    "category": "İş & Girişimcilik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 251,
+    "title": "Yüksek Çıktı Yönetimi (High Output Management)",
+    "author": "Andrew S. Grove",
+    "category": "İş & Girişimcilik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 252,
+    "title": "Beş İşlev Bozukluğu (The Five Dysfunctions of a Team)",
+    "author": "Patrick Lencioni",
+    "category": "İş & Girişimcilik",
+    "language": "TR",
+    "in_list": true
+  },
+  {
+    "id": 253,
+    "title": "Amazon'un İçinden (Amazon Unbound)",
+    "author": "Brad Stone",
+    "category": "İş & Girişimcilik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 254,
+    "title": "Jeff Bezos'tan Mektuplar (The Bezos Letters)",
+    "author": "Steve Anderson",
+    "category": "İş & Girişimcilik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 255,
+    "title": "Pixar Hikayeleri (Creativity, Inc.)",
+    "author": "Ed Catmull",
+    "category": "İş & Girişimcilik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 256,
+    "title": "Tüm Pazarlamacılar Yalancıdır (All Marketers Are Liars)",
+    "author": "Seth Godin",
+    "category": "Pazarlama & Fikir Yayma",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 257,
+    "title": "Mor İnek (Purple Cow)",
+    "author": "Seth Godin",
+    "category": "Pazarlama & Fikir Yayma",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 258,
+    "title": "Linchpin",
+    "author": "Seth Godin",
+    "category": "Pazarlama & Fikir Yayma",
+    "language": "EN",
+    "in_list": false
+  },
+  {
+    "id": 259,
+    "title": "Bu Bir Pazarlama (This Is Marketing)",
+    "author": "Seth Godin",
+    "category": "Pazarlama & Fikir Yayma",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 260,
+    "title": "Contagious",
+    "author": "Jonah Berger",
+    "category": "Pazarlama & Fikir Yayma",
+    "language": "EN",
+    "in_list": false
+  },
+  {
+    "id": 261,
+    "title": "Rekabetsiz Strateji (Blue Ocean Strategy)",
+    "author": "W. Chan Kim & Renée Mauborgne",
+    "category": "Pazarlama & Fikir Yayma",
+    "language": "TR",
+    "in_list": true
+  },
+  {
+    "id": 262,
+    "title": "Positioning",
+    "author": "Al Ries & Jack Trout",
+    "category": "Pazarlama & Fikir Yayma",
+    "language": "EN",
+    "in_list": false
+  },
+  {
+    "id": 263,
+    "title": "Katalizör (The Catalyst)",
+    "author": "Jonah Berger",
+    "category": "Pazarlama & Fikir Yayma",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 264,
+    "title": "Hatalar Yapıldı (Mistakes Were Made)",
+    "author": "Carol Tavris & Elliot Aronson",
+    "category": "Psikoloji & Beyin",
+    "language": "TR",
+    "in_list": true
+  },
+  {
+    "id": 265,
+    "title": "Güven Refleksi (The Confidence Game)",
+    "author": "Maria Konnikova",
+    "category": "Psikoloji & Beyin",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 266,
+    "title": "İyimserlik Yanılgısı (The Optimism Bias)",
+    "author": "Tali Sharot",
+    "category": "Psikoloji & Beyin",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 267,
+    "title": "İnsan Doğasını Anlamak",
+    "author": "Alfred Adler",
+    "category": "Psikoloji & Beyin",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 268,
+    "title": "Özgür İrade Yanılsaması (Determined)",
+    "author": "Robert Sapolsky",
+    "category": "Psikoloji & Beyin",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 269,
+    "title": "Beynin Gizli Hayatı (Incognito)",
+    "author": "David Eagleman",
+    "category": "Psikoloji & Beyin",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 270,
+    "title": "Bilinçdışı Beyin (Subliminal)",
+    "author": "Leonard Mlodinow",
+    "category": "Psikoloji & Beyin",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 271,
+    "title": "Beyin Dersleri (7½ Lessons About the Brain)",
+    "author": "Lisa Feldman Barrett",
+    "category": "Nörobilim & Zihin",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 272,
+    "title": "Seni Kim Yaptı (Behave)",
+    "author": "Robert Sapolsky",
+    "category": "Nörobilim & Zihin",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 273,
+    "title": "Beyin Nasıl Çalışır (The Brain)",
+    "author": "David Eagleman",
+    "category": "Nörobilim & Zihin",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 274,
+    "title": "Hayali Uzuvlar (Phantoms in the Brain)",
+    "author": "V.S. Ramachandran",
+    "category": "Nörobilim & Zihin",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 275,
+    "title": "Kendini Bil (Know Thyself)",
+    "author": "Stephen Fleming",
+    "category": "Nörobilim & Zihin",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 276,
+    "title": "Acı Tatlandırır (The Sweet Spot)",
+    "author": "Paul Bloom",
+    "category": "Nörobilim & Zihin",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 277,
+    "title": "Duygular Nasıl Yapılır (How Emotions Are Made)",
+    "author": "Lisa Feldman Barrett",
+    "category": "Nörobilim & Zihin",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 278,
+    "title": "Travma ve Ruh (The Body Keeps the Score)",
+    "author": "Bessel van der Kolk",
+    "category": "Psikoloji & Beyin",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 279,
+    "title": "Bağlanma Teorisi (Attached)",
+    "author": "Amir Levine & Rachel Heller",
+    "category": "Psikoloji & Beyin",
+    "language": "TR",
+    "in_list": true
+  },
+  {
+    "id": 280,
+    "title": "İlişki Haritası (The Seven Principles for Making Marriage Work)",
+    "author": "John Gottman",
+    "category": "Psikoloji & Beyin",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 281,
+    "title": "Güven Bilimi (Trust Factor)",
+    "author": "Paul Zak",
+    "category": "Psikoloji & Beyin",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 282,
+    "title": "Değişim (Switch)",
+    "author": "Chip & Dan Heath",
+    "category": "Değişim Psikolojisi",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 283,
+    "title": "Alışkanlık Döngüsü (The Power of Habit)",
+    "author": "Charles Duhigg",
+    "category": "Değişim Psikolojisi",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 284,
+    "title": "Sistematik Düşünce (The Fifth Discipline)",
+    "author": "Peter Senge",
+    "category": "Değişim Psikolojisi",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 285,
+    "title": "Köklü Değişim (Immunity to Change)",
+    "author": "Robert Kegan",
+    "category": "Değişim Psikolojisi",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 286,
+    "title": "Olumlu Psikoloji (Flourish)",
+    "author": "Martin Seligman",
+    "category": "Değişim Psikolojisi",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 287,
+    "title": "Enron Skandalı (The Smartest Guys in the Room)",
+    "author": "Bethany McLean",
+    "category": "Şirket Hikayeleri",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 288,
+    "title": "Büyük Açık (The Big Short)",
+    "author": "Michael Lewis",
+    "category": "Şirket Hikayeleri",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 289,
+    "title": "Flash Boys",
+    "author": "Michael Lewis",
+    "category": "Şirket Hikayeleri",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 290,
+    "title": "Kötü Kan (Bad Blood)",
+    "author": "John Carreyrou",
+    "category": "Şirket Hikayeleri",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 291,
+    "title": "WeWork Çöküşü (Billion Dollar Loser)",
+    "author": "Reeves Wiedeman",
+    "category": "Şirket Hikayeleri",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 292,
+    "title": "Uber Savaşları (Super Pumped)",
+    "author": "Mike Isaac",
+    "category": "Şirket Hikayeleri",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 293,
+    "title": "Moneyball",
+    "author": "Michael Lewis",
+    "category": "Şirket Hikayeleri",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 294,
+    "title": "Para Psikolojisi (The Psychology of Money)",
+    "author": "Morgan Housel",
+    "category": "Para Psikolojisi & Yatırım",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 295,
+    "title": "Yatırımcının Psikolojisi (Your Money and Your Brain)",
+    "author": "Jason Zweig",
+    "category": "Para Psikolojisi & Yatırım",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 296,
+    "title": "Bileşik Etki (The Compound Effect)",
+    "author": "Darren Hardy",
+    "category": "Para Psikolojisi & Yatırım",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 297,
+    "title": "Servet Alışkanlıkları (Rich Habits)",
+    "author": "Tom Corley",
+    "category": "Para Psikolojisi & Yatırım",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 298,
+    "title": "Komşundaki Milyoner (The Millionaire Next Door)",
+    "author": "Thomas J. Stanley",
+    "category": "Para Psikolojisi & Yatırım",
+    "language": "TR",
+    "in_list": true
+  },
+  {
+    "id": 299,
+    "title": "Satış Konuşması (To Sell Is Human)",
+    "author": "Daniel Pink",
+    "category": "Satış & Müzakere",
+    "language": "TR",
+    "in_list": true
+  },
+  {
+    "id": 300,
+    "title": "Müzakere Dehası (Negotiation Genius)",
+    "author": "Deepak Malhotra & Max Bazerman",
+    "category": "Satış & Müzakere",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 301,
+    "title": "Evet'e Ulaşmak (Getting to Yes)",
+    "author": "Roger Fisher & William Ury",
+    "category": "Satış & Müzakere",
+    "language": "TR",
+    "in_list": true
+  },
+  {
+    "id": 302,
+    "title": "Challenger Satış (The Challenger Sale)",
+    "author": "Matthew Dixon",
+    "category": "Satış & Müzakere",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 303,
+    "title": "İnovasyon İkilemi (The Innovator's Dilemma)",
+    "author": "Clayton Christensen",
+    "category": "İnovasyon & Büyüme",
+    "language": "TR",
+    "in_list": true
+  },
+  {
+    "id": 304,
+    "title": "Yenilikçinin DNA'sı (The Innovator's DNA)",
+    "author": "Christensen & Dyer",
+    "category": "İnovasyon & Büyüme",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 305,
+    "title": "Çevik Devrim (Scrum)",
+    "author": "Jeff Sutherland",
+    "category": "İnovasyon & Büyüme",
+    "language": "TR",
+    "in_list": true
+  },
+  {
+    "id": 306,
+    "title": "Sprint",
+    "author": "Jake Knapp",
+    "category": "İnovasyon & Büyüme",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 307,
+    "title": "Tasarım Odaklı Düşünce (Change by Design)",
+    "author": "Tim Brown",
+    "category": "İnovasyon & Büyüme",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 308,
+    "title": "Uzun Kuyruk (The Long Tail)",
+    "author": "Chris Anderson",
+    "category": "İnovasyon & Büyüme",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 309,
+    "title": "Neden Uyuruz (Why We Sleep) [Evrimsel]",
+    "author": "Matthew Walker",
+    "category": "Evrimsel Psikoloji",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 310,
+    "title": "Stres Testi (Why Zebras Don't Get Ulcers)",
+    "author": "Robert Sapolsky",
+    "category": "Evrimsel Psikoloji",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 311,
+    "title": "Sosyal: Beyin Neden Bağlantı İçin Yaratıldı (Social)",
+    "author": "Matthew Lieberman",
+    "category": "Evrimsel Psikoloji",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 312,
+    "title": "Bağ Hormonu (The Moral Molecule)",
+    "author": "Paul Zak",
+    "category": "Evrimsel Psikoloji",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 313,
+    "title": "Empati Paradoksu (Against Empathy)",
+    "author": "Paul Bloom",
+    "category": "Evrimsel Psikoloji",
+    "language": "TR",
+    "in_list": true
+  },
+  {
+    "id": 314,
+    "title": "Primat Politikası (Chimpanzee Politics)",
+    "author": "Frans de Waal",
+    "category": "Evrimsel Psikoloji",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 315,
+    "title": "Bencil Gen (The Selfish Gene)",
+    "author": "Richard Dawkins",
+    "category": "Evrimsel Psikoloji",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 316,
+    "title": "Mümkün Olan (Possible)",
+    "author": "Reid Hoffman",
+    "category": "Yeni Nesil Liderlik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 317,
+    "title": "Sessiz Lider (Quiet Power)",
+    "author": "Susan Cain",
+    "category": "Yeni Nesil Liderlik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 318,
+    "title": "Kırılganlık Kalkanı (Skin in the Game)",
+    "author": "Nassim Taleb",
+    "category": "Yeni Nesil Liderlik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 319,
+    "title": "Öğrenmenin Sanatı (The Art of Learning)",
+    "author": "Josh Waitzkin",
+    "category": "Yeni Nesil Liderlik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 320,
+    "title": "Derin Değişim (Deep Change)",
+    "author": "Robert Quinn",
+    "category": "Yeni Nesil Liderlik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 321,
+    "title": "Hikayeleri Yeniden Yaz (Redirect)",
+    "author": "Timothy Wilson",
+    "category": "Davranış Psikolojisi",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 322,
+    "title": "Çevre Etkisi (Pre-Suasion)",
+    "author": "Robert Cialdini",
+    "category": "Davranış Psikolojisi",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 323,
+    "title": "Evet Dedirtme Sanatı (Yes! 50 Scientifically Proven Ways)",
+    "author": "Robert Cialdini",
+    "category": "Davranış Psikolojisi",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 324,
+    "title": "Sınır İhlali (The Honest Truth About Dishonesty)",
+    "author": "Dan Ariely",
+    "category": "Davranış Psikolojisi",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 325,
+    "title": "Zaman Paradoksu (The Time Paradox)",
+    "author": "Philip Zimbardo",
+    "category": "Davranış Psikolojisi",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 326,
+    "title": "Gürültü (Noise)",
+    "author": "Daniel Kahneman",
+    "category": "Davranış Psikolojisi",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 327,
+    "title": "Sosyal Kanıt (The Power of Persuasion)",
+    "author": "Robert Levine",
+    "category": "Davranış Psikolojisi",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 328,
+    "title": "Gizli Zihin (The Self Illusion)",
+    "author": "Bruce Hood",
+    "category": "Bilinçdışı & Örtük Zihin",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 329,
+    "title": "Seni Yöneten Sen Değilsin (The Righteous Mind)",
+    "author": "Jonathan Haidt",
+    "category": "Bilinçdışı & Örtük Zihin",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 330,
+    "title": "Öfke Tuzağı (Why We Get Mad)",
+    "author": "Ryan Martin",
+    "category": "Bilinçdışı & Örtük Zihin",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 331,
+    "title": "Çocukluk İzleri (The Deepest Well)",
+    "author": "Nadine Burke Harris",
+    "category": "Bilinçdışı & Örtük Zihin",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 332,
+    "title": "Kalabalığın Deliliği (The Crowd)",
+    "author": "Gustave Le Bon",
+    "category": "Bilinçdışı & Örtük Zihin",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 333,
+    "title": "Olumlu Psikoloji (Flourish) [Tekrar]",
+    "author": "Martin Seligman",
+    "category": "Değişim Psikolojisi",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 334,
+    "title": "Öğrenme Bilimi (Make It Stick) [Detaylı]",
+    "author": "Peter C. Brown",
+    "category": "Öğrenme & Hafıza",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 335,
+    "title": "Ahlakın Kökeni (The Age of Empathy)",
+    "author": "Frans de Waal",
+    "category": "Evrimsel Psikoloji",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 336,
+    "title": "İnsanın En İyi Dostu (Survival of the Friendliest)",
+    "author": "Brian Hare & Vanessa Woods",
+    "category": "Evrimsel Psikoloji",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 337,
+    "title": "Tesla: Elektrik Çağının Mucidi",
+    "author": "W. Bernard Carlson",
+    "category": "Tarih & Büyük İnsanlar",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 338,
+    "title": "Marie Curie (Radioactive)",
+    "author": "Lauren Redniss",
+    "category": "Tarih & Büyük İnsanlar",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 339,
+    "title": "Muhteşem Asi Ruhlar (Magnificent Rebels)",
+    "author": "Andrea Wulf",
+    "category": "Tarih & Büyük İnsanlar",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 340,
+    "title": "İkinci Makine Çağı (The Second Machine Age)",
+    "author": "Brynjolfsson & McAfee",
+    "category": "Teknoloji & İnsan",
+    "language": "TR",
+    "in_list": true
+  },
+  {
+    "id": 341,
+    "title": "Platform Devrimi (Platform Revolution)",
+    "author": "Parker, Van Alstyne & Choudary",
+    "category": "İnovasyon & Büyüme",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 342,
+    "title": "Serbest (Free: The Future of a Radical Price)",
+    "author": "Chris Anderson",
+    "category": "İnovasyon & Büyüme",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 343,
+    "title": "Açlık Oyunları (The Hungry Brain)",
+    "author": "Stephan Guyenet",
+    "category": "Evrimsel Psikoloji",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 344,
+    "title": "Karmaşıklık (Complexity: A Guided Tour)",
+    "author": "Melanie Mitchell",
+    "category": "Sistem Düşüncesi",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 345,
+    "title": "Blueprint (Sosyal Evrim)",
+    "author": "Nicholas Christakis",
+    "category": "Sistem Düşüncesi",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 346,
+    "title": "Kış Günleri (Wintering) [Detaylı]",
+    "author": "Katherine May",
+    "category": "Doğa & Yavaşlık",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 347,
+    "title": "Son Çocuk Ormanda (Last Child in the Woods)",
+    "author": "Richard Louv",
+    "category": "Doğa & Yavaşlık",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 348,
+    "title": "Beyin Fırtınası (Messy: The Power of Disorder)",
+    "author": "Tim Harford",
+    "category": "Yaratıcılık & İfade",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 349,
+    "title": "Piyasaları Yenen Adam (A Man for All Markets)",
+    "author": "Ed Thorp",
+    "category": "Para Psikolojisi & Yatırım",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 350,
+    "title": "Milyoner Zihin (The Millionaire Mind)",
+    "author": "Thomas J. Stanley",
+    "category": "Para Psikolojisi & Yatırım",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 351,
+    "title": "Yeniden Düşün (Think Again) [Detaylı]",
+    "author": "Adam Grant",
+    "category": "Toplum & Bağlantı",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 352,
+    "title": "Müşteri Başarısı (Customer Success)",
+    "author": "Nick Mehta",
+    "category": "Satış & Müzakere",
+    "language": "EN",
+    "in_list": false
+  },
+  {
+    "id": 353,
+    "title": "Müşteri Deneyimi (The Experience Economy)",
+    "author": "Pine & Gilmore",
+    "category": "Satış & Müzakere",
+    "language": "EN",
+    "in_list": false
+  },
+  {
+    "id": 354,
+    "title": "Challenger Satış (The Challenger Sale) [Genişletilmiş]",
+    "author": "Matthew Dixon & Brent Adamson",
+    "category": "Satış & Müzakere",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 355,
+    "title": "Olumlu Hayır (The Power of a Positive No)",
+    "author": "William Ury",
+    "category": "Satış & Müzakere",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 356,
+    "title": "Sam Walton'ın Hikayesi (Made in America)",
+    "author": "Sam Walton",
+    "category": "İş & Girişimcilik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 357,
+    "title": "Snowball (Warren Buffett Biyografisi)",
+    "author": "Alice Schroeder",
+    "category": "İş & Girişimcilik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 358,
+    "title": "Kalbini Dök (Pour Your Heart Into It)",
+    "author": "Howard Schultz",
+    "category": "İş & Girişimcilik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 359,
+    "title": "Startup El Kitabı (The Startup Owner's Manual)",
+    "author": "Steve Blank",
+    "category": "İş & Girişimcilik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 360,
+    "title": "Seduction Sanatı (The Art of Seduction)",
+    "author": "Robert Greene",
+    "category": "Vizyon & Strateji",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 361,
+    "title": "Yargı Tuzakları (Noise)",
+    "author": "Daniel Kahneman & Olivier Sibony",
+    "category": "Psikoloji & Beyin",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 362,
+    "title": "Kendine Yatırım Yap (The Almanack of Naval Ravikant) [Genişletilmiş]",
+    "author": "Naval Ravikant",
+    "category": "Para & Özgürlük",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 363,
+    "title": "Büyük Değişim (The Premonition)",
+    "author": "Michael Lewis",
+    "category": "Şirket Hikayeleri",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 364,
+    "title": "Liar's Poker",
+    "author": "Michael Lewis",
+    "category": "Şirket Hikayeleri",
+    "language": "EN",
+    "in_list": false
+  },
+  {
+    "id": 365,
+    "title": "Apple'ın İçinden (Inside Apple)",
+    "author": "Adam Lashinsky",
+    "category": "Şirket Hikayeleri",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 366,
+    "title": "Toplulukların Gücü (Connected)",
+    "author": "Nicholas Christakis & James Fowler",
+    "category": "Toplum & Bağlantı",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 367,
+    "title": "Anlam Dolu Bir Hayat (The Second Mountain) [Genişletilmiş]",
+    "author": "David Brooks",
+    "category": "Amaç & Değerler",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 368,
+    "title": "Büyük Fikirler (Freakanomics 2)",
+    "author": "Levitt & Dubner",
+    "category": "Veri & Gerçeklerle İlham",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 369,
+    "title": "İyi Hisset Üretkenliği (Feel-Good Productivity) [Detaylı]",
+    "author": "Ali Abdaal",
+    "category": "Üretkenlik & Odak",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 370,
+    "title": "Onlara Bırak (The Let Them Theory)",
+    "author": "Mel Robbins",
+    "category": "Üretkenlik & Odak",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 371,
+    "title": "Artı Beş Dakika (The High 5 Habit)",
+    "author": "Mel Robbins",
+    "category": "Üretkenlik & Odak",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 372,
+    "title": "Yeni Mutlu (New Happy)",
+    "author": "Stephanie Harrison",
+    "category": "Sevinç & Şükran",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 373,
+    "title": "Neşeyle Yaşamak (Joyful) [Detaylı]",
+    "author": "Ingrid Fetell Lee",
+    "category": "Sevinç & Şükran",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 374,
+    "title": "Tanrıyla Güreş (We Who Wrestle with God)",
+    "author": "Jordan B. Peterson",
+    "category": "Maneviyat & Anlam",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 375,
+    "title": "Amen Etkisi (The Amen Effect)",
+    "author": "Sharon Brous",
+    "category": "Maneviyat & Anlam",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 376,
+    "title": "Sıradan Mistisizm (Ordinary Mysticism)",
+    "author": "Mirabai Starr",
+    "category": "Maneviyat & Anlam",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 377,
+    "title": "Büyük Değişim (Redirect) [Genişletilmiş]",
+    "author": "Timothy Wilson",
+    "category": "Davranış Psikolojisi",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 378,
+    "title": "Doruk (Peak) [Detaylı]",
+    "author": "Anders Ericsson",
+    "category": "Öğrenme & Hafıza",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 379,
+    "title": "Psikolojik Sermaye (Psychological Capital)",
+    "author": "Fred Luthans",
+    "category": "Değişim Psikolojisi",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 380,
+    "title": "Fikirlerin Tarihi (Ideas: A History)",
+    "author": "Peter Watson",
+    "category": "Vizyon & Dünyayı Anlama",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 381,
+    "title": "Mutlu Beyin Alışkanlıkları (Habits of a Happy Brain) [Detaylı]",
+    "author": "Loretta Graziano Breuning",
+    "category": "Nörobilim & Zihin",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 382,
+    "title": "Yaratıcılık Şirketi (Creativity Inc.) [Detaylı]",
+    "author": "Ed Catmull & Amy Wallace",
+    "category": "İş & Girişimcilik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 383,
+    "title": "Empati Devresi (The Science of Evil)",
+    "author": "Simon Baron-Cohen",
+    "category": "Nörobilim & Zihin",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 384,
+    "title": "Kalabalık Zekaları (Wisdom of Crowds)",
+    "author": "James Surowiecki",
+    "category": "Sistem Düşüncesi",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 385,
+    "title": "Büyük Soru (Big Questions)",
+    "author": "Steven Hawking",
+    "category": "Vizyon & Dünyayı Anlama",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 386,
+    "title": "Tembel Olmak (How to Do Nothing)",
+    "author": "Jenny Odell",
+    "category": "Doğa & Yavaşlık",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 387,
+    "title": "Mucize Sabahı (Miracle Equation)",
+    "author": "Hal Elrod",
+    "category": "Motivasyon & Zihin Gücü",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 388,
+    "title": "Büyük Cesaret (Daring Greatly) [Detaylı]",
+    "author": "Brené Brown",
+    "category": "Dayanıklılık & Zihinsel Güç",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 389,
+    "title": "Cesaretini Göster (Dare to Lead)",
+    "author": "Brené Brown",
+    "category": "Yeni Nesil Liderlik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 390,
+    "title": "Bağlantıyı Güçlendir (Braving the Wilderness)",
+    "author": "Brené Brown",
+    "category": "Toplum & Bağlantı",
+    "language": "TR",
+    "in_list": true
+  },
+  {
+    "id": 391,
+    "title": "Hedefe Ulaşmak (Getting Things Done)",
+    "author": "David Allen",
+    "category": "Üretkenlik & Odak",
+    "language": "TR",
+    "in_list": true
+  },
+  {
+    "id": 392,
+    "title": "İmpulse (The Influential Mind)",
+    "author": "Tali Sharot",
+    "category": "Psikoloji & Beyin",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 393,
+    "title": "Herkes İçin AI (Co-Intelligence)",
+    "author": "Ethan Mollick",
+    "category": "Teknoloji & İnsan",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 394,
+    "title": "Hayatı Değiştiren Soru (A More Beautiful Question)",
+    "author": "Warren Berger",
+    "category": "Yaratıcılık & İfade",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 395,
+    "title": "Derin Öğrenme (Deep Learning)",
+    "author": "Terrence J. Sejnowski",
+    "category": "Teknoloji & İnsan",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 396,
+    "title": "Tarihin Kısa Tarihi (A Short History of Nearly Everything) [Detaylı]",
+    "author": "Bill Bryson",
+    "category": "Bilim & Merak",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 397,
+    "title": "Yaşadık Yüzyıl (The Century)",
+    "author": "Peter Jennings & Todd Brewster",
+    "category": "Tarih & Büyük İnsanlar",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 398,
+    "title": "Olağandışı Zihinler (Extraordinary Minds)",
+    "author": "Howard Gardner",
+    "category": "Öğrenme & Hafıza",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 399,
+    "title": "Doğuştan Yetenekli (The Genius in All of Us)",
+    "author": "David Shenk",
+    "category": "Öğrenme & Hafıza",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 400,
+    "title": "Öfkeden Güce (Anger: Wisdom for Cooling the Flames)",
+    "author": "Thich Nhat Hanh",
+    "category": "Farkındalık & İç Huzur",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 401,
+    "title": "Cömertlik Ekonomisi (The Go-Giver)",
+    "author": "Bob Burg & John David Mann",
+    "category": "İş & Girişimcilik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 402,
+    "title": "Bir Kitap Yazacaksın (Write Your Book)",
+    "author": "Chandler Bolt",
+    "category": "Yazı & Yaratıcılık",
+    "language": "EN",
+    "in_list": false
+  },
+  {
+    "id": 403,
+    "title": "Hayatı Tasarla (Designing Your Life)",
+    "author": "Bill Burnett & Dave Evans",
+    "category": "Amaç & Değerler",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 404,
+    "title": "Ölçülebilir Mutluluk (Stumbling on Happiness)",
+    "author": "Daniel Gilbert",
+    "category": "Psikoloji & Beyin",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 405,
+    "title": "Seçimler (The Paradox of Choice)",
+    "author": "Barry Schwartz",
+    "category": "Davranış Psikolojisi",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 406,
+    "title": "İnsan Neden Yardım Eder (Why Good Things Happen to Good People)",
+    "author": "Stephen Post",
+    "category": "Toplum & Bağlantı",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 407,
+    "title": "Gerçekten Önemli Olan (What Really Matters)",
+    "author": "Arthur Kleinman",
+    "category": "Hayat Dersleri & Anlam Arayışı",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 408,
+    "title": "Varsayımları Sor (Humble Inquiry)",
+    "author": "Edgar H. Schein",
+    "category": "İletişim & İlişkiler",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 409,
+    "title": "Neden E-posta İşe Yaramıyor (A World Without Email)",
+    "author": "Cal Newport",
+    "category": "Üretkenlik & Odak",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 410,
+    "title": "Değer Teklifin Ne (Value Proposition Design)",
+    "author": "Osterwalder & Pigneur",
+    "category": "İş & Girişimcilik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 411,
+    "title": "Büyüme Ajanı (The Growth Agent)",
+    "author": "Sangram Vajre",
+    "category": "İş & Girişimcilik",
+    "language": "EN",
+    "in_list": false
+  },
+  {
+    "id": 412,
+    "title": "İş Modeli Üreticisi (Business Model Generation)",
+    "author": "Alexander Osterwalder",
+    "category": "İş & Girişimcilik",
+    "language": "TR",
+    "in_list": true
+  },
+  {
+    "id": 413,
+    "title": "Finansal Özgürlük (Financial Freedom)",
+    "author": "Grant Sabatier",
+    "category": "Para & Özgürlük",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 414,
+    "title": "Zenginliğe Giden Kısa Yol (The Shortcut to Wealth)",
+    "author": "Cody Sanchez",
+    "category": "Para & Özgürlük",
+    "language": "EN",
+    "in_list": false
+  },
+  {
+    "id": 415,
+    "title": "Güç Dinamikleri (The Power of Full Engagement)",
+    "author": "Jim Loehr & Tony Schwartz",
+    "category": "Üretkenlik & Odak",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 416,
+    "title": "Bütün Zamanların Mektupları (Letters of Note)",
+    "author": "Shaun Usher",
+    "category": "Farklı Kültürlerden İlham",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 417,
+    "title": "Olağanüstü Bir Yıl (Extreme Ownership)",
+    "author": "Jocko Willink & Leif Babin",
+    "category": "Liderlik & Başarı",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 418,
+    "title": "Disiplin Eşittir Özgürlük (Discipline Equals Freedom)",
+    "author": "Jocko Willink",
+    "category": "Dayanıklılık & Zihinsel Güç",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 419,
+    "title": "İşin Kötü Kısmı (The Hard Thing About Hard Things) [Detaylı]",
+    "author": "Ben Horowitz",
+    "category": "İş & Girişimcilik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 420,
+    "title": "Değer Odaklı Büyüme (Traction) [Detaylı]",
+    "author": "Gino Wickman",
+    "category": "İş & Girişimcilik",
+    "language": "TR",
+    "in_list": true
+  },
+  {
+    "id": 421,
+    "title": "İnsanın Geleceği (The Future Is Faster Than You Think)",
+    "author": "Diamandis & Kotler",
+    "category": "Teknoloji & İnsan",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 422,
+    "title": "Sonsuz Büyüme (Bold)",
+    "author": "Peter Diamandis & Steven Kotler",
+    "category": "İnovasyon & Büyüme",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 423,
+    "title": "Bolluk (Abundance)",
+    "author": "Peter Diamandis & Steven Kotler",
+    "category": "Vizyon & Dünyayı Anlama",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 424,
+    "title": "Aklın Sınırları (The Intelligence Trap)",
+    "author": "David Robson",
+    "category": "Psikoloji & Beyin",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 425,
+    "title": "Değerli Olmak (So Good They Can't Ignore You)",
+    "author": "Cal Newport",
+    "category": "Öğrenme & Zeka",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 426,
+    "title": "Cesur Yeni Dünya (Brave New Work)",
+    "author": "Aaron Dignan",
+    "category": "İş & Girişimcilik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 427,
+    "title": "Fikirlerin Yapımcısı (The Idea Factory)",
+    "author": "Jon Gertner",
+    "category": "İnovasyon & Büyüme",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 428,
+    "title": "Bağlantı Anatomisi (The Connection Algorithm)",
+    "author": "Jesse Tevelow",
+    "category": "Toplum & Bağlantı",
+    "language": "EN",
+    "in_list": false
+  },
+  {
+    "id": 429,
+    "title": "Beynin Gizleri (The Tell-Tale Brain)",
+    "author": "V.S. Ramachandran",
+    "category": "Nörobilim & Zihin",
+    "language": "TR",
+    "in_list": true
+  },
+  {
+    "id": 430,
+    "title": "Sağlıklı Zihin (The Healthy Mind Toolkit)",
+    "author": "Alice Boyes",
+    "category": "Sağlık & Huzur & Farkındalık",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 431,
+    "title": "Kaygıyla Barışmak (Rewire Your Anxious Brain)",
+    "author": "Catherine Pittman",
+    "category": "Sağlık & Huzur & Farkındalık",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 432,
+    "title": "Güzel Kargaşa (The Gifts of Imperfection)",
+    "author": "Brené Brown",
+    "category": "Büyüme & Öz Şefkat",
+    "language": "TR",
+    "in_list": true
+  },
+  {
+    "id": 433,
+    "title": "Tam Şimdi (Present Over Perfect)",
+    "author": "Shauna Niequist",
+    "category": "Sağlık & Huzur & Farkındalık",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 434,
+    "title": "Aydınlanmanın Cesareti (The Courage to Be Disliked)",
+    "author": "Ichiro Kishimi & Fumitake Koga",
+    "category": "Felsefe & Bilgelik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 435,
+    "title": "Özgür Olmak (The Courage to Be Happy)",
+    "author": "Ichiro Kishimi & Fumitake Koga",
+    "category": "Felsefe & Bilgelik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 436,
+    "title": "Japonların Yaşam Sanatı (The Japanese Art of Living)",
+    "author": "Yuki Tanaka",
+    "category": "Doğu Felsefesi & Hikmet",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 437,
+    "title": "Wabi Sabi (Wabi-Sabi for Artists)",
+    "author": "Leonard Koren",
+    "category": "Doğu Felsefesi & Hikmet",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 438,
+    "title": "Senbazuru (Origami Felsefesi)",
+    "author": "Sadako Sasaki",
+    "category": "Doğu Felsefesi & Hikmet",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 439,
+    "title": "Hızlı Düşün Yavaş Seç (Thinking in Bets)",
+    "author": "Annie Duke",
+    "category": "Davranış Psikolojisi",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 440,
+    "title": "Sınır Belirle (Set Boundaries, Find Peace)",
+    "author": "Nedra Tawwab",
+    "category": "Büyüme & Öz Şefkat",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 441,
+    "title": "Kendine Nasıl Davranırsın (How to Be an Adult)",
+    "author": "David Richo",
+    "category": "Büyüme & Öz Şefkat",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 442,
+    "title": "Mükemmeli Bırak (Better Than Perfect)",
+    "author": "Elizabeth Lombardo",
+    "category": "Büyüme & Öz Şefkat",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 443,
+    "title": "Psikolojik Güvenlik (The 4 Stages of Psychological Safety)",
+    "author": "Timothy Clark",
+    "category": "İş & Girişimcilik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 444,
+    "title": "Çalışma Biçimimiz (The Way We're Working Isn't Working)",
+    "author": "Tony Schwartz",
+    "category": "Üretkenlik & Odak",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 445,
+    "title": "Korkusuz Liderlik (Leaders Eat Last)",
+    "author": "Simon Sinek",
+    "category": "Liderlik & Başarı",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 446,
+    "title": "İyi Kötü Alışkanlıklar (Good Habits, Bad Habits)",
+    "author": "Wendy Wood",
+    "category": "Alışkanlıklar & Büyüme",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 447,
+    "title": "Başarının Şifresi (The Code of the Extraordinary Mind)",
+    "author": "Vishen Lakhiani",
+    "category": "Motivasyon & Zihin Gücü",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 448,
+    "title": "6 dakikada Mutluluk (The Six-Minute Diary)",
+    "author": "Dominik Spenst",
+    "category": "Sevinç & Şükran",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 449,
+    "title": "Olumlu Zeka (Positive Intelligence)",
+    "author": "Shirzad Chamine",
+    "category": "Motivasyon & Zihin Gücü",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 450,
+    "title": "Cesur Hedefler (10x Is Easier Than 2x)",
+    "author": "Dan Sullivan & Benjamin Hardy",
+    "category": "Hedef & Niyet",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 451,
+    "title": "Gerçek Kuzey (True North)",
+    "author": "Bill George",
+    "category": "Liderlik & Başarı",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 452,
+    "title": "Tam Katılım (Full Engagement)",
+    "author": "Jim Loehr & Tony Schwartz",
+    "category": "Üretkenlik & Odak",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 453,
+    "title": "Beynin Büyüsü (The Brain That Changes Itself)",
+    "author": "Norman Doidge",
+    "category": "Nörobilim & Zihin",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 454,
+    "title": "Yeniden Bağlan (Reclaiming Conversation)",
+    "author": "Sherry Turkle",
+    "category": "Teknoloji & İnsan",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 455,
+    "title": "Algoritmik Hayat (Algorithms to Live By)",
+    "author": "Brian Christian & Tom Griffiths",
+    "category": "Vizyon & Dünyayı Anlama",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 456,
+    "title": "İnsan Zekanın Sınırları (The Intelligence of the Cosmos)",
+    "author": "Ervin Laszlo",
+    "category": "Zihin & Bilinç",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 457,
+    "title": "Gerçek Mutluluk (Authentic Happiness)",
+    "author": "Martin Seligman",
+    "category": "Sevinç & Şükran",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 458,
+    "title": "Eşitlik Tuzağı (The Equity Trap)",
+    "author": "Donald Miller",
+    "category": "İş & Girişimcilik",
+    "language": "EN",
+    "in_list": false
+  },
+  {
+    "id": 459,
+    "title": "Hikayenle Kazan (Building a StoryBrand)",
+    "author": "Donald Miller",
+    "category": "Pazarlama & Fikir Yayma",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 460,
+    "title": "Milyon Dolar Mesajı (Million Dollar Consulting)",
+    "author": "Alan Weiss",
+    "category": "İş & Girişimcilik",
+    "language": "EN",
+    "in_list": false
+  },
+  {
+    "id": 461,
+    "title": "Harika Okul (The Element)",
+    "author": "Ken Robinson",
+    "category": "Öğrenme & Zeka",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 462,
+    "title": "Yaratıcı Okul (Creative Schools)",
+    "author": "Ken Robinson",
+    "category": "Öğrenme & Zeka",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 463,
+    "title": "Sınırsız Zihin (Limitless)",
+    "author": "Jim Kwik",
+    "category": "Öğrenme & Hafıza",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 464,
+    "title": "Hız Okuma (Speed Reading)",
+    "author": "Tony Buzan",
+    "category": "Öğrenme & Hafıza",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 465,
+    "title": "Beyin Gıdası (Brain Food)",
+    "author": "Lisa Mosconi",
+    "category": "Nörobilim & Zihin",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 466,
+    "title": "Kötü Arkadaş Yok (No Bad Parts)",
+    "author": "Richard Schwartz",
+    "category": "Psikoloji & Beyin",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 467,
+    "title": "Büyüme Odaklı Pazarlama (Growth Hacker Marketing)",
+    "author": "Ryan Holiday",
+    "category": "Pazarlama & Fikir Yayma",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 468,
+    "title": "Sıfır'dan Marka (Building a Brand Story)",
+    "author": "Donald Miller",
+    "category": "Pazarlama & Fikir Yayma",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 469,
+    "title": "Yüzde Yüz (The 100% Rule)",
+    "author": "Tom Ziglar",
+    "category": "Motivasyon & Zihin Gücü",
+    "language": "EN",
+    "in_list": false
+  },
+  {
+    "id": 470,
+    "title": "Nasıl Güçlü Olunur (The Way of the Superior Man)",
+    "author": "David Deida",
+    "category": "Amaç & Değerler",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 471,
+    "title": "Çalışma Zevki (Ikigai at Work)",
+    "author": "Tim Tamashiro",
+    "category": "Amaç & Değerler",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 472,
+    "title": "Gece Yarısı Kütüphanecisi (The Midnight Library) [Felsefe]",
+    "author": "Matt Haig",
+    "category": "Felsefe & Bilgelik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 473,
+    "title": "Sonsuz Güç (Unlimited Power)",
+    "author": "Tony Robbins",
+    "category": "Motivasyon & Zihin Gücü",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 474,
+    "title": "Güçlü Soruların Sanatı (The Art of Asking)",
+    "author": "Amanda Palmer",
+    "category": "İletişim & İlişkiler",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 475,
+    "title": "Duygusal Sağlık (Emotional Intelligence 2.0)",
+    "author": "Travis Bradberry",
+    "category": "Psikoloji & Beyin",
+    "language": "TR",
+    "in_list": true
+  },
+  {
+    "id": 476,
+    "title": "Küçük Şeyler (Small Things Often)",
+    "author": "John Gottman",
+    "category": "İletişim & İlişkiler",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 477,
+    "title": "Dört Sütun (The Four Pillars of Investing)",
+    "author": "William Bernstein",
+    "category": "Para Psikolojisi & Yatırım",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 478,
+    "title": "Bedava (Free) [Ekonomi]",
+    "author": "Chris Anderson",
+    "category": "İnovasyon & Büyüme",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 479,
+    "title": "Satış Psikolojisi (The Psychology of Selling)",
+    "author": "Brian Tracy",
+    "category": "Satış & Müzakere",
+    "language": "TR",
+    "in_list": true
+  },
+  {
+    "id": 480,
+    "title": "İnsanları Etkile (Influence: The Psychology of Persuasion) [Yeni Baskı]",
+    "author": "Robert Cialdini",
+    "category": "Davranış Psikolojisi",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 481,
+    "title": "Devleşen Fikirler (Big Potential)",
+    "author": "Shawn Achor",
+    "category": "Motivasyon & Zihin Gücü",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 482,
+    "title": "Güçlü Konuşmalar (Fierce Conversations)",
+    "author": "Susan Scott",
+    "category": "İletişim & İlişkiler",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 483,
+    "title": "Ebeveynliğin Bilimi (The Whole-Brain Child)",
+    "author": "Daniel Siegel & Tina Bryson",
+    "category": "Psikoloji & Beyin",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 484,
+    "title": "Çocuk Yetiştirme Sanatı (No Drama Discipline)",
+    "author": "Daniel Siegel & Tina Bryson",
+    "category": "Psikoloji & Beyin",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 485,
+    "title": "Herkese Evet Diyemezsin (The Disease to Please)",
+    "author": "Harriet B. Braiker",
+    "category": "Büyüme & Öz Şefkat",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 486,
+    "title": "Durmak İçin Koş (Stop Running from Love)",
+    "author": "Dusty Miller",
+    "category": "İletişim & İlişkiler",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 487,
+    "title": "Yaşama Sevinci (Joie de Vivre)",
+    "author": "Harriet Welty Rochefort",
+    "category": "Farklı Kültürlerden İlham",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 488,
+    "title": "Kolay Yol Yok (No Shortcuts)",
+    "author": "Mark Manson",
+    "category": "Motivasyon & Zihin Gücü",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 489,
+    "title": "Umursamazlığın Güzel Sanatı (The Subtle Art of Not Giving a F*ck)",
+    "author": "Mark Manson",
+    "category": "Felsefe & Bilgelik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 490,
+    "title": "Ve Sonra Ne Oldu (Everything Is F*cked)",
+    "author": "Mark Manson",
+    "category": "Felsefe & Bilgelik",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 491,
+    "title": "Neden Çalışıyoruz (Why We Work)",
+    "author": "Barry Schwartz",
+    "category": "Amaç & Değerler",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 492,
+    "title": "Kendini Tazele (Refresh Your Mind)",
+    "author": "Brendon Burchard",
+    "category": "Motivasyon & Zihin Gücü",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 493,
+    "title": "Yüksek Performans Alışkanlıkları (High Performance Habits)",
+    "author": "Brendon Burchard",
+    "category": "Üretkenlik & Odak",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 494,
+    "title": "Şarj Ol (The Charge)",
+    "author": "Brendon Burchard",
+    "category": "Motivasyon & Zihin Gücü",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 495,
+    "title": "Hayat Dolu Yaşa (Life Is Messy)",
+    "author": "Matthew Kelly",
+    "category": "Hayat Dersleri & Anlam Arayışı",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 496,
+    "title": "En İyi Versiyonun (The Best Version of Yourself)",
+    "author": "Matthew Kelly",
+    "category": "Hayat Dersleri & Anlam Arayışı",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 497,
+    "title": "Yürek Sesi (The Voice of Knowledge)",
+    "author": "don Miguel Ruiz",
+    "category": "Maneviyat & Anlam",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 498,
+    "title": "Cennetin Prensipleri (The Mastery of Love)",
+    "author": "don Miguel Ruiz",
+    "category": "Maneviyat & Anlam",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 499,
+    "title": "Seni Seviyorum Ama Seninle Yaşayamıyorum (Too Good to Leave, Too Bad to Stay)",
+    "author": "Mira Kirshenbaum",
+    "category": "İletişim & İlişkiler",
+    "language": "TR",
+    "in_list": false
+  },
+  {
+    "id": 500,
+    "title": "Yaşamak İçin Cesaret (The Courage to Live Consciously)",
+    "author": "Steve Pavlina",
+    "category": "Amaç & Değerler",
+    "language": "TR",
+    "in_list": false
+  }
+]

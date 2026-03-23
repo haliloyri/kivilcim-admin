@@ -6,19 +6,30 @@ import './index.css';
 function App() {
   const [activeTab, setActiveTab] = useState('kitap'); // kitap, yazar, kategori, hikaye
   const [selectedStory, setSelectedStory] = useState(null);
+  const [modalLang, setModalLang] = useState('tr');
+  const [selectedStoryTranslations, setSelectedStoryTranslations] = useState({});
   const [currentLang, setCurrentLang] = useState('tr'); // tr, en, de, es
-  
+
   const [books, setBooks] = useState([]);
   const [categories, setCategories] = useState([]);
   const [authors, setAuthors] = useState([]);
   const [stories, setStories] = useState([]);
   const [sharePreviewStory, setSharePreviewStory] = useState(null);
   const shareCardRef = React.useRef(null);
-  
+
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState({ text: '', type: '' });
   const [scrollProgress, setScrollProgress] = useState(0);
+
+  // Translation State
+  const [translationStats, setTranslationStats] = useState({
+    stories: { total: 0, translated: { tr: 0, en: 0, de: 0, es: 0 } },
+    books: { total: 0, translated: { tr: 0, en: 0, de: 0, es: 0 } },
+    categories: { total: 0, translated: { tr: 0, en: 0, de: 0, es: 0 } }
+  });
+  const [translationLogs, setTranslationLogs] = useState({ stories: [], books: [], categories: [] });
+  const [isTranslating, setIsTranslating] = useState({ stories: false, books: false, categories: false });
 
   // Filters for tabs
   const [filterAuthor, setFilterAuthor] = useState(null);
@@ -34,6 +45,16 @@ function App() {
 
   // Sorting
   const [sortConfig, setSortConfig] = useState({ key: null, direction: 'asc' });
+  const [expandedCategories, setExpandedCategories] = useState(new Set());
+
+  const toggleCategory = (id) => {
+    setExpandedCategories(prev => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else next.add(id);
+      return next;
+    });
+  };
 
   useEffect(() => {
     fetchData();
@@ -74,10 +95,120 @@ function App() {
         if (filterBookNo) url += `book_no=${filterBookNo}&`;
         const res = await fetch(url);
         setStories(await res.json());
+      } else if (activeTab === 'ceviri') {
+        fetchTranslationStats();
       }
     } catch (error) {
       console.error('Error fetching data:', error);
     }
+  };
+
+  const fetchTranslationStats = async () => {
+    try {
+      const res = await fetch('http://localhost:3001/api/translate-stats');
+      setTranslationStats(await res.json());
+    } catch (error) {
+      console.error('Error fetching stats', error);
+    }
+  };
+
+  const openStoryModal = async (item) => {
+    setSelectedStory(item);
+    setModalLang(currentLang);
+    setSelectedStoryTranslations({});
+    try {
+      const res = await fetch(`http://localhost:3001/api/stories/${item.id}/translations`);
+      const data = await res.json();
+      setSelectedStoryTranslations(data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const startTranslation = async (type, endpoint, limit, itemName) => {
+    setIsTranslating(prev => ({ ...prev, [type]: true }));
+    setTranslationLogs(prev => ({ ...prev, [type]: [...(prev[type] || []), 'Ücretsiz Google API Çeviri işlemi başlatıldı...'] }));
+
+    let keepTranslating = true;
+    while (keepTranslating) {
+      try {
+        const response = await fetch(`http://localhost:3001/api/${endpoint}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ limit })
+        });
+
+        const result = await response.json();
+        if (!response.ok) throw new Error(result.error || 'Çeviri başarısız');
+
+        if (result.processed === 0) {
+          keepTranslating = false;
+          setTranslationLogs(prev => ({ ...prev, [type]: [...(prev[type] || []), `Tüm ${itemName} başarıyla çevrildi!`] }));
+          await fetchTranslationStats();
+        } else {
+          setTranslationLogs(prev => ({ ...prev, [type]: [...(prev[type] || []), `Başarılı: ${result.processed} ${itemName} Google ile çevrildi...`] }));
+          await fetchTranslationStats();
+        }
+      } catch (error) {
+        keepTranslating = false;
+        setTranslationLogs(prev => ({ ...prev, [type]: [...(prev[type] || []), `Hata: ${error.message}. İşlem durduruldu.`] }));
+      }
+    }
+    setIsTranslating(prev => ({ ...prev, [type]: false }));
+  };
+
+  const renderTranslationSection = (title, type, endpoint, limit, itemName, note) => {
+    const stats = translationStats[type] || { total: 0, translated: { tr: 0, en: 0, de: 0, es: 0 } };
+    const logs = translationLogs[type] || [];
+    const isBusy = isTranslating[type];
+
+    return (
+      <div style={{ flex: 1, minWidth: '300px' }}>
+        <div style={{ background: 'var(--surface-low)', padding: '1.5rem', borderRadius: '12px', border: '1px solid var(--outline-variant)', marginBottom: '1.5rem', display: 'flex', flexDirection: 'column', height: '100%' }}>
+          <h3 style={{ fontSize: '1.25rem', marginBottom: '1rem', color: 'var(--primary)', textAlign: 'center' }}>{title}</h3>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '0.75rem', marginBottom: '1.5rem' }}>
+            {['tr', 'en', 'de', 'es'].map(lang => {
+              const count = stats.translated[lang] || 0;
+              const total = stats.total || 1;
+              const percent = ((count / total) * 100).toFixed(0);
+              return (
+                <div key={lang} style={{ background: 'var(--surface-highest)', padding: '0.75rem', borderRadius: '8px', border: '1px solid var(--outline-variant)' }}>
+                  <div style={{ fontSize: '0.75rem', color: 'var(--on-surface-variant)', textTransform: 'uppercase', marginBottom: '0.25rem' }}>{lang} Dili</div>
+                  <div style={{ fontSize: '1.1rem', fontWeight: 'bold' }}>{count} <span style={{ fontSize: '0.7rem', color: 'var(--on-surface-variant)', fontWeight: 'normal' }}>/ {stats.total}</span></div>
+                  <div style={{ width: '100%', height: '4px', background: 'var(--surface-low)', marginTop: '0.5rem', borderRadius: '2px', overflow: 'hidden' }}>
+                    <div style={{ width: `${percent}%`, height: '100%', background: 'var(--primary)', transition: 'width 0.5s' }}></div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', flex: 1 }}>
+            <button
+              className="button-primary"
+              style={{ padding: '0.8rem', fontSize: '0.9rem' }}
+              onClick={() => startTranslation(type, endpoint, limit, itemName)}
+              disabled={isBusy}
+            >
+              <Sparkles size={16} />
+              {isBusy ? 'İşleniyor...' : `Eksik ${title.split(' ')[0]} Çevir`}
+            </button>
+            <p style={{ fontSize: '0.75rem', color: 'var(--on-surface-variant)', textAlign: 'center' }}>
+              {note}
+            </p>
+          </div>
+
+          {logs.length > 0 && (
+            <div style={{ mt: 'auto', background: '#0a0a0a', border: '1px solid var(--outline-variant)', borderRadius: '8px', padding: '0.75rem', height: '120px', overflowY: 'auto', fontFamily: 'monospace', fontSize: '0.75rem', color: '#00ffcc', marginTop: '1rem' }}>
+              {logs.map((log, index) => (
+                <div key={index} style={{ marginBottom: '0.25rem' }}>&gt; {log}</div>
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+    );
   };
 
   const handleFileChange = (e) => {
@@ -112,7 +243,7 @@ function App() {
 
       setMessage({ text: result.message, type: 'success' });
       setFile(null);
-      
+
       fetchData();
     } catch (error) {
       setMessage({ text: error.message, type: 'error' });
@@ -133,7 +264,7 @@ function App() {
       });
       const result = await response.json();
       if (!response.ok) throw new Error(result.error || 'Reset failed');
-      
+
       setMessage({ text: result.message, type: 'success' });
       fetchData();
     } catch (error) {
@@ -166,12 +297,12 @@ function App() {
 
   const downloadShareCard = async () => {
     if (!shareCardRef.current) return;
-    
+
     setLoading(true);
     try {
       // Small delay to ensure any animations or fonts are loaded
       await new Promise(resolve => setTimeout(resolve, 500));
-      
+
       const dataUrl = await toPng(shareCardRef.current, {
         cacheBust: true,
         backgroundColor: '#131311',
@@ -180,12 +311,12 @@ function App() {
           boxShadow: 'none'
         }
       });
-      
+
       const link = document.createElement('a');
       link.download = `kivilcim-paylas-${sharePreviewStory.title.toLowerCase().replace(/\s+/g, '-')}.png`;
       link.href = dataUrl;
       link.click();
-      
+
       setMessage({ text: 'Görsel başarıyla oluşturuldu!', type: 'success' });
       setTimeout(() => setMessage({ text: '', type: '' }), 3000);
     } catch (err) {
@@ -219,8 +350,8 @@ function App() {
 
   const renderSortIcon = (key) => {
     if (sortConfig.key !== key) return <ArrowUpDown size={14} style={{ opacity: 0.3, marginLeft: '0.5rem' }} />;
-    return sortConfig.direction === 'asc' 
-      ? <ArrowUp size={14} style={{ color: 'var(--primary)', marginLeft: '0.5rem' }} /> 
+    return sortConfig.direction === 'asc'
+      ? <ArrowUp size={14} style={{ color: 'var(--primary)', marginLeft: '0.5rem' }} />
       : <ArrowDown size={14} style={{ color: 'var(--primary)', marginLeft: '0.5rem' }} />;
   };
 
@@ -234,7 +365,7 @@ function App() {
     if (searchQuery) {
       const query = searchQuery.toLowerCase();
       list = list.filter(item => {
-        return Object.values(item).some(val => 
+        return Object.values(item).some(val =>
           val !== null && val !== undefined && val.toString().toLowerCase().includes(query)
         );
       });
@@ -249,8 +380,8 @@ function App() {
         if (valB === null || valB === undefined) return -1;
         const isNum = !isNaN(parseFloat(valA)) && isFinite(valA) && !isNaN(parseFloat(valB)) && isFinite(valB);
         if (isNum) return sortConfig.direction === 'asc' ? valA - valB : valB - valA;
-        return sortConfig.direction === 'asc' 
-          ? valA.toString().localeCompare(valB.toString()) 
+        return sortConfig.direction === 'asc'
+          ? valA.toString().localeCompare(valB.toString())
           : valB.toString().localeCompare(valA.toString());
       });
     }
@@ -330,20 +461,20 @@ function App() {
   return (
     <>
       <div className="reading-progress-bar" style={{ width: scrollProgress }}></div>
-      <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '4rem 2rem' }}>
+      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '4rem 2rem' }}>
         <header style={{ marginBottom: '3rem', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
           <div>
             <h1 style={{ fontSize: '3.5rem', marginBottom: '1rem', letterSpacing: '-0.02em', color: 'var(--primary)' }}>Digital Curatorship</h1>
             <p style={{ fontSize: '1.25rem', color: 'var(--on-surface-variant)', fontFamily: 'var(--font-functional)' }}>Kıvılcım Uygulaması Yönetim Merkezi</p>
           </div>
           <div style={{ display: 'flex', gap: '0.5rem', background: 'var(--surface-low)', padding: '0.4rem', borderRadius: '8px', border: '1px solid var(--outline-variant)' }}>
-            {[ { code: 'tr', label: 'TR', name: 'Türkçe' }, { code: 'en', label: 'EN', name: 'English' }, { code: 'de', label: 'DE', name: 'Deutsch' }, { code: 'es', label: 'ES', name: 'Español' } ].map(lang => (
+            {[{ code: 'tr', label: 'TR', name: 'Türkçe' }, { code: 'en', label: 'EN', name: 'English' }, { code: 'de', label: 'DE', name: 'Deutsch' }, { code: 'es', label: 'ES', name: 'Español' }].map(lang => (
               <button key={lang.code} onClick={() => setCurrentLang(lang.code)} style={{ background: currentLang === lang.code ? 'var(--primary-container)' : 'transparent', color: currentLang === lang.code ? 'var(--on-primary)' : 'var(--on-surface-variant)', border: 'none', padding: '0.4rem 0.8rem', borderRadius: '4px', fontFamily: 'var(--font-functional)', fontWeight: '600', fontSize: '0.75rem', cursor: 'pointer', transition: 'all 0.2s ease' }} title={lang.name}> {lang.label} </button>
             ))}
           </div>
         </header>
 
-        <section style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 2.5fr)', gap: '4rem', alignItems: 'start' }}>
+        <section style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 3.5fr)', gap: '4rem', alignItems: 'start' }}>
           <div className="card glass-panel" style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
             <h2 style={{ fontSize: '1.5rem', borderBottom: '1px solid var(--outline-variant)', paddingBottom: '1rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}> <UploadCloud size={20} color="var(--primary)" /> Toplu Kataloğa Aktar </h2>
             <p style={{ color: 'var(--on-surface-variant)', fontSize: '0.9rem', lineHeight: '1.5' }}> .xlsx dosyanızı yükleyin. Kitaplar, Kategoriler ve Hikayeler tabloları güncellenecektir. </p>
@@ -356,12 +487,13 @@ function App() {
             )}
             <div style={{ marginTop: '2rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
               <h3 style={{ fontSize: '1rem', color: 'var(--on-surface-variant)', marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Gezinme</h3>
-              <button className={`tab-button ${activeTab === 'kitap' ? 'active' : ''}`} onClick={() => navigateToTab('kitap')}> <BookOpen size={18}/> Kitaplar </button>
-              <button className={`tab-button ${activeTab === 'kategori' ? 'active' : ''}`} onClick={() => navigateToTab('kategori')}> <Layers size={18}/> Kategoriler </button>
-              <button className={`tab-button ${activeTab === 'yazar' ? 'active' : ''}`} onClick={() => navigateToTab('yazar')}> <Users size={18}/> Yazarlar </button>
-              <button className={`tab-button ${activeTab === 'hikaye' ? 'active' : ''}`} onClick={() => navigateToTab('hikaye')}> <FileText size={18}/> Hikayeler </button>
+              <button className={`tab-button ${activeTab === 'kitap' ? 'active' : ''}`} onClick={() => navigateToTab('kitap')}> <BookOpen size={18} /> Kitaplar </button>
+              <button className={`tab-button ${activeTab === 'kategori' ? 'active' : ''}`} onClick={() => navigateToTab('kategori')}> <Layers size={18} /> Kategoriler </button>
+              <button className={`tab-button ${activeTab === 'yazar' ? 'active' : ''}`} onClick={() => navigateToTab('yazar')}> <Users size={18} /> Yazarlar </button>
+              <button className={`tab-button ${activeTab === 'hikaye' ? 'active' : ''}`} onClick={() => navigateToTab('hikaye')}> <FileText size={18} /> Hikayeler </button>
+              <button className={`tab-button ${activeTab === 'ceviri' ? 'active' : ''}`} onClick={() => navigateToTab('ceviri')}> <Sparkles size={18} /> Çeviri İşlemleri </button>
               <div style={{ marginTop: 'auto', paddingTop: '2rem', borderTop: '1px solid var(--outline-variant)' }}>
-                <button className="button-danger" onClick={handleClearData} disabled={loading} style={{ width: '100%', fontSize: '0.8rem' }}> <Trash2 size={16}/> Kataloğu Sıfırla </button>
+                <button className="button-danger" onClick={handleClearData} disabled={loading} style={{ width: '100%', fontSize: '0.8rem' }}> <Trash2 size={16} /> Kataloğu Sıfırla </button>
               </div>
             </div>
           </div>
@@ -369,11 +501,13 @@ function App() {
           <div className="card-highest" style={{ padding: '0', backgroundColor: 'var(--surface-lowest)' }}>
             <div style={{ padding: '2rem 3rem', borderBottom: '1px solid var(--outline-variant)' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '1rem' }}>
-                <h2 style={{ fontSize: '2rem', display: 'flex', alignItems: 'center', gap: '1rem', textTransform: 'capitalize', margin: 0 }}> {activeTab === 'kitap' ? 'Kitaplar' : activeTab === 'kategori' ? 'Kategoriler' : activeTab === 'yazar' ? 'Yazarlar' : 'Hikayeler'} <span style={{ fontSize: '1rem', color: 'var(--on-surface-variant)', fontFamily: 'var(--font-functional)', fontWeight: '500' }}> {dataList.length} Toplam Kayıt </span> </h2>
-                <div className="input-group" style={{ flexDirection: 'row', alignItems: 'center', background: 'var(--surface-low)', borderRadius: '8px', padding: '0.2rem 1rem', border: '1px solid var(--outline-variant)' }}>
-                  <Search size={18} color="var(--on-surface-variant)" />
-                  <input type="text" placeholder="Tüm alanlarda ara..." value={searchQuery} onChange={(e) => { setSearchQuery(e.target.value); setCurrentPage(1); }} style={{ background: 'transparent', border: 'none', color: 'var(--on-surface)', padding: '0.5rem', outline: 'none', fontFamily: 'var(--font-functional)', minWidth: '250px' }} />
-                </div>
+                <h2 style={{ fontSize: '2rem', display: 'flex', alignItems: 'center', gap: '1rem', textTransform: 'capitalize', margin: 0 }}> {activeTab === 'kitap' ? 'Kitaplar' : activeTab === 'kategori' ? 'Kategoriler' : activeTab === 'yazar' ? 'Yazarlar' : activeTab === 'ceviri' ? 'AI Çeviri İşlemleri' : 'Hikayeler'} {activeTab !== 'ceviri' && <span style={{ fontSize: '1rem', color: 'var(--on-surface-variant)', fontFamily: 'var(--font-functional)', fontWeight: '500' }}> {activeTab === 'kategori' ? categories.length : dataList.length} Toplam Kayıt </span>} </h2>
+                {activeTab !== 'ceviri' && activeTab !== 'kategori' && (
+                  <div className="input-group" style={{ flexDirection: 'row', alignItems: 'center', background: 'var(--surface-low)', borderRadius: '8px', padding: '0.2rem 1rem', border: '1px solid var(--outline-variant)' }}>
+                    <Search size={18} color="var(--on-surface-variant)" />
+                    <input type="text" placeholder="Tüm alanlarda ara..." value={searchQuery} onChange={(e) => { setSearchQuery(e.target.value); setCurrentPage(1); }} style={{ background: 'transparent', border: 'none', color: 'var(--on-surface)', padding: '0.5rem', outline: 'none', fontFamily: 'var(--font-functional)', minWidth: '250px' }} />
+                  </div>
+                )}
               </div>
               {(filterAuthor || filterCategory || filterBookNo) && (
                 <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
@@ -384,89 +518,151 @@ function App() {
             </div>
 
             <div className="table-container">
-              <table className="admin-table">
-                <thead>
-                  {activeTab === 'kitap' && (
-                    <tr>
-                      <th style={{ cursor: 'pointer' }} onClick={() => handleSort('list_no')}>No {renderSortIcon('list_no')}</th>
-                      <th style={{ cursor: 'pointer' }} onClick={() => handleSort('title')}>Adı {renderSortIcon('title')}</th>
-                      <th style={{ cursor: 'pointer' }} onClick={() => handleSort('author')}>Yazar {renderSortIcon('author')}</th>
-                      <th style={{ cursor: 'pointer' }} onClick={() => handleSort('category')}>Kategori {renderSortIcon('category')}</th>
-                      <th style={{ cursor: 'pointer' }} onClick={() => handleSort('story_count')}>Hikaye Sayısı {renderSortIcon('story_count')}</th>
-                      <th style={{ cursor: 'pointer' }} onClick={() => handleSort('publish_year')}>Yıl {renderSortIcon('publish_year')}</th>
-                    </tr>
+              {activeTab === 'ceviri' ? (
+                <div style={{ padding: '2rem 3rem' }}>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem', alignItems: 'stretch' }}>
+                    {renderTranslationSection('Kitap Çevirisi', 'books', 'translate-books-batch', 20, 'kitap', "Kitap isimleri kısa olduğu için 20'şerli çevrilir.")}
+                    {renderTranslationSection('Kategori Çevirisi', 'categories', 'translate-categories-batch', 20, 'kategori', "Kategoriler kısa olduğu için 20'şerli çevrilir.")}
+                    {renderTranslationSection('Hikaye Çevirisi', 'stories', 'translate-batch', 5, 'hikaye', "Hikaye metinleri uzun olduğu için 5'erli çevrilir.")}
+                  </div>
+                </div>
+              ) : activeTab === 'kategori' ? (
+                <div style={{ padding: '2rem 3rem' }}>
+                  {categories.length === 0 ? (
+                    <div style={{ textAlign: 'center', padding: '4rem 0', color: 'var(--on-surface-variant)' }}>Kategori verisi yok.</div>
+                  ) : (
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                      {categories.map((cat) => {
+                        const isExpanded = expandedCategories.has(cat.id);
+                        return (
+                          <div key={cat.id} style={{ border: '1px solid var(--outline-variant)', borderRadius: '12px', overflow: 'hidden', background: 'var(--surface-low)', transition: 'box-shadow 0.2s' }}>
+                            {/* Category Row */}
+                            <div style={{ display: 'grid', gridTemplateColumns: '1fr auto auto auto', alignItems: 'center', gap: '1.5rem', padding: '1rem 1.5rem', background: 'var(--surface-high)' }}>
+                              <span style={{ fontSize: '1.1rem', fontWeight: '700', color: 'var(--on-surface)' }}>
+                                {cat.name}
+                              </span>
+                              <span style={{ background: 'var(--surface-highest)', color: 'var(--on-surface-variant)', padding: '0.25rem 0.75rem', borderRadius: '20px', fontSize: '0.8rem', fontFamily: 'var(--font-functional)', border: '1px solid var(--outline-variant)', whiteSpace: 'nowrap' }}>
+                                📚 {cat.book_count} Kitap
+                              </span>
+                              <button
+                                onClick={() => toggleCategory(cat.id)}
+                                title={isExpanded ? 'Alt kategorileri gizle' : 'Alt kategorileri göster'}
+                                style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', background: isExpanded ? 'var(--primary-container)' : 'var(--surface-highest)', color: isExpanded ? 'var(--on-primary)' : 'var(--on-surface-variant)', border: '1px solid var(--outline-variant)', borderRadius: '20px', padding: '0.25rem 0.75rem', fontSize: '0.8rem', fontFamily: 'var(--font-functional)', cursor: 'pointer', transition: 'all 0.2s', whiteSpace: 'nowrap' }}
+                              >
+                                🗂 {cat.sub_count} Alt Kategori
+                                <span style={{ marginLeft: '0.25rem', display: 'inline-block', transform: isExpanded ? 'rotate(180deg)' : 'rotate(0deg)', transition: 'transform 0.25s' }}>▾</span>
+                              </button>
+                            </div>
+
+                            {/* Subcategory List (collapsible) */}
+                            {isExpanded && (
+                              <div style={{ borderTop: '1px solid var(--outline-variant)' }}>
+                                {cat.sub_categories.length === 0 ? (
+                                  <div style={{ padding: '1rem 1.5rem', color: 'var(--on-surface-variant)', fontSize: '0.875rem' }}>Alt kategori bulunamadı.</div>
+                                ) : cat.sub_categories.map((sub) => (
+                                  <div key={sub.id} style={{ display: 'grid', gridTemplateColumns: '1fr auto auto', alignItems: 'center', gap: '1rem', padding: '0.65rem 2rem', borderBottom: '1px solid var(--outline-variant)', transition: 'background 0.15s' }}
+                                    onMouseEnter={e => e.currentTarget.style.background = 'rgba(255,255,255,0.03)'}
+                                    onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
+                                  >
+                                    <span style={{ fontSize: '0.95rem', color: 'var(--on-surface)', paddingLeft: '0.5rem', borderLeft: '2px solid var(--outline-variant)' }}>
+                                      {sub.name}
+                                    </span>
+                                    <span style={{ color: 'var(--on-surface-variant)', fontSize: '0.8rem', fontFamily: 'var(--font-functional)', whiteSpace: 'nowrap' }}>
+                                      {sub.book_count} kitap
+                                    </span>
+                                    <a href="#" className="table-link" style={{ fontSize: '0.8rem', whiteSpace: 'nowrap' }}
+                                      onClick={(e) => { e.preventDefault(); navigateToTab('kitap', { category: sub.name }); }}
+                                    >
+                                      Kitapları Gör →
+                                    </a>
+                                  </div>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
                   )}
-                  {activeTab === 'kategori' && (
-                    <tr>
-                      <th style={{ cursor: 'pointer' }} onClick={() => handleSort('name')}>Kategori Adı {renderSortIcon('name')}</th>
-                      <th style={{ cursor: 'pointer' }} onClick={() => handleSort('book_count')}>Kayıtlı Kitap Sayısı {renderSortIcon('book_count')}</th>
-                      <th>İşlem</th>
-                    </tr>
-                  )}
-                  {activeTab === 'yazar' && (
-                    <tr>
-                      <th style={{ cursor: 'pointer' }} onClick={() => handleSort('author')}>Yazar Adı {renderSortIcon('author')}</th>
-                      <th style={{ cursor: 'pointer' }} onClick={() => handleSort('book_count')}>Kayıtlı Kitap Sayısı {renderSortIcon('book_count')}</th>
-                      <th>İşlem</th>
-                    </tr>
-                  )}
-                   {activeTab === 'hikaye' && (
-                    <tr>
-                      <th style={{ cursor: 'pointer' }} onClick={() => handleSort('book_no')}>Eser No {renderSortIcon('book_no')}</th>
-                      <th style={{ cursor: 'pointer' }} onClick={() => handleSort('book_title')}>Kitap Adı {renderSortIcon('book_title')}</th>
-                      <th style={{ cursor: 'pointer' }} onClick={() => handleSort('title')}>Hikaye Başlığı {renderSortIcon('title')}</th>
-                      <th>Açıklama Özeti</th>
-                      <th style={{ textAlign: 'center' }}>Aksiyon</th>
-                    </tr>
-                  )}
-                </thead>
-                <tbody>
-                  {currentItems.length === 0 ? (
-                    <tr><td colSpan="6" style={{ textAlign: 'center', padding: '4rem 0', color: 'var(--on-surface-variant)' }}>Bu liste boş. Lütfen verileri güncelleyin veya filtreleri kaldırın.</td></tr>
-                  ) : currentItems.map((item, idx) => (
-                    <React.Fragment key={idx}>
+                </div>
+              ) : (
+                <>
+                  <table className="admin-table">
+                    <thead>
                       {activeTab === 'kitap' && (
                         <tr>
-                          <td style={{ color: 'var(--primary)', fontWeight: '500' }}>{item.list_no}</td>
-                          <td style={{ fontSize: '1.1rem' }}><a href="#" className="table-link" onClick={(e) => { e.preventDefault(); navigateToTab('hikaye', { bookNo: item.list_no }); }}>{item.title}</a></td>
-                          <td><a href="#" className="table-link" onClick={(e) => { e.preventDefault(); navigateToTab('kitap', { author: item.author }); }}>{item.author}</a></td>
-                          <td><a href="#" className="table-link" onClick={(e) => { e.preventDefault(); navigateToTab('kitap', { category: item.category }); }}>{item.category}</a></td>
-                          <td style={{ textAlign: 'center' }}><span style={{ background: 'var(--surface-high)', color: 'var(--primary)', padding: '0.2rem 0.6rem', borderRadius: '4px', fontSize: '0.8rem', fontWeight: '600', fontFamily: 'var(--font-functional)', border: '1px solid var(--outline-variant)' }}>{item.story_count}</span></td>
-                          <td style={{ fontSize: '0.875rem' }}>{item.publish_year}</td>
-                        </tr>
-                      )}
-                      {activeTab === 'kategori' && (
-                        <tr>
-                          <td style={{ fontSize: '1.1rem' }}>{item.name}</td>
-                          <td style={{ color: 'var(--on-surface-variant)' }}>{item.book_count} Kitap</td>
-                          <td><a href="#" className="table-link" onClick={(e) => { e.preventDefault(); navigateToTab('kitap', { category: item.name }); }}>İlgili Kitapları Gör →</a></td>
+                          <th style={{ cursor: 'pointer' }} onClick={() => handleSort('list_no')}>No {renderSortIcon('list_no')}</th>
+                          <th style={{ cursor: 'pointer' }} onClick={() => handleSort('title')}>Adı {renderSortIcon('title')}</th>
+                          <th style={{ cursor: 'pointer' }} onClick={() => handleSort('author')}>Yazar {renderSortIcon('author')}</th>
+                          <th style={{ cursor: 'pointer' }} onClick={() => handleSort('category')}>Kategori {renderSortIcon('category')}</th>
+                          <th style={{ cursor: 'pointer' }} onClick={() => handleSort('story_count')}>Hikaye Sayısı {renderSortIcon('story_count')}</th>
+                          <th style={{ cursor: 'pointer' }} onClick={() => handleSort('publish_year')}>Yıl {renderSortIcon('publish_year')}</th>
                         </tr>
                       )}
                       {activeTab === 'yazar' && (
                         <tr>
-                          <td style={{ fontSize: '1.1rem' }}>{item.author}</td>
-                          <td style={{ color: 'var(--on-surface-variant)' }}>{item.book_count} Kitap</td>
-                          <td><a href="#" className="table-link" onClick={(e) => { e.preventDefault(); navigateToTab('kitap', { author: item.author }); }}>Yazarın Kitaplarını Gör →</a></td>
+                          <th style={{ cursor: 'pointer' }} onClick={() => handleSort('author')}>Yazar Adı {renderSortIcon('author')}</th>
+                          <th style={{ cursor: 'pointer' }} onClick={() => handleSort('book_count')}>Kayıtlı Kitap Sayısı {renderSortIcon('book_count')}</th>
+                          <th>İşlem</th>
                         </tr>
                       )}
                       {activeTab === 'hikaye' && (
                         <tr>
-                          <td style={{ color: 'var(--primary)', fontWeight: '500' }}>{item.book_no}</td>
-                          <td><a href="#" className="table-link" onClick={(e) => { e.preventDefault(); navigateToTab('kitap', { bookNo: item.book_no }); }}>{item.book_title}</a></td>
-                          <td style={{ fontSize: '1.1rem' }}><a href="#" className="table-link" onClick={(e) => { e.preventDefault(); setSelectedStory(item); }} style={{ color: 'var(--on-surface)' }}>{item.title}</a></td>
-                          <td style={{ color: 'var(--on-surface-variant)', fontSize: '0.875rem', maxWidth: '300px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{item.description}</td>
-                          <td style={{ textAlign: 'center' }}>
-                            <button className="button-tertiary" style={{ padding: '0.4rem 0.8rem', fontSize: '0.75rem', background: 'var(--surface-high)', borderRadius: '4px' }} onClick={() => setSharePreviewStory(item)}>
-                              <Share2 size={14} /> Ön İzle
-                            </button>
-                          </td>
+                          <th style={{ cursor: 'pointer' }} onClick={() => handleSort('id')}>ID {renderSortIcon('id')}</th>
+                          <th style={{ cursor: 'pointer' }} onClick={() => handleSort('book_no')}>Eser No {renderSortIcon('book_no')}</th>
+                          <th style={{ cursor: 'pointer' }} onClick={() => handleSort('book_title')}>Kitap Adı {renderSortIcon('book_title')}</th>
+                          <th style={{ cursor: 'pointer' }} onClick={() => handleSort('title')}>Hikaye Başlığı {renderSortIcon('title')}</th>
+                          <th>Açıklama Özeti</th>
+                          <th style={{ textAlign: 'center' }}>Aksiyon</th>
                         </tr>
                       )}
-                    </React.Fragment>
-                  ))}
-                </tbody>
-              </table>
-              <div style={{ padding: '1rem 2rem', borderTop: '1px solid var(--outline-variant)' }}> {renderPagination()} </div>
+                    </thead>
+                    <tbody>
+                      {currentItems.length === 0 ? (
+                        <tr><td colSpan="6" style={{ textAlign: 'center', padding: '4rem 0', color: 'var(--on-surface-variant)' }}>Bu liste boş. Lütfen verileri güncelleyin veya filtreleri kaldırın.</td></tr>
+                      ) : currentItems.map((item, idx) => (
+                        <React.Fragment key={idx}>
+                          {activeTab === 'kitap' && (
+                            <tr>
+                              <td style={{ color: 'var(--primary)', fontWeight: '500' }}>{item.list_no}</td>
+                              <td style={{ fontSize: '1.1rem' }}><a href="#" className="table-link" onClick={(e) => { e.preventDefault(); navigateToTab('hikaye', { bookNo: item.list_no }); }}>{item.title}</a></td>
+                              <td><a href="#" className="table-link" onClick={(e) => { e.preventDefault(); navigateToTab('kitap', { author: item.author }); }}>{item.author}</a></td>
+                              <td>
+                                <div style={{ fontSize: '0.75rem', color: 'var(--on-surface-variant)', marginBottom: '0.2rem' }}>{item.main_category}</div>
+                                <a href="#" className="table-link" onClick={(e) => { e.preventDefault(); navigateToTab('kitap', { category: item.category }); }}>{item.category}</a>
+                              </td>
+                              <td style={{ textAlign: 'center' }}><span style={{ background: 'var(--surface-high)', color: 'var(--primary)', padding: '0.2rem 0.6rem', borderRadius: '4px', fontSize: '0.8rem', fontWeight: '600', fontFamily: 'var(--font-functional)', border: '1px solid var(--outline-variant)' }}>{item.story_count}</span></td>
+                              <td style={{ fontSize: '0.875rem' }}>{item.publish_year}</td>
+                            </tr>
+                          )}
+                          {activeTab === 'yazar' && (
+                            <tr>
+                              <td style={{ fontSize: '1.1rem' }}>{item.author}</td>
+                              <td style={{ color: 'var(--on-surface-variant)' }}>{item.book_count} Kitap</td>
+                              <td><a href="#" className="table-link" onClick={(e) => { e.preventDefault(); navigateToTab('kitap', { author: item.author }); }}>Yazarın Kitaplarını Gör →</a></td>
+                            </tr>
+                          )}
+                          {activeTab === 'hikaye' && (
+                            <tr>
+                              <td style={{ fontWeight: '600', color: 'var(--on-surface-variant)' }}>#{item.id}</td>
+                              <td style={{ color: 'var(--primary)', fontWeight: '500' }}>{item.book_no}</td>
+                              <td><a href="#" className="table-link" onClick={(e) => { e.preventDefault(); navigateToTab('kitap', { bookNo: item.book_no }); }}>{item.book_title}</a></td>
+                              <td style={{ fontSize: '1.1rem' }}><a href="#" className="table-link" onClick={(e) => { e.preventDefault(); openStoryModal(item); }} style={{ color: 'var(--on-surface)' }}>{item.title}</a></td>
+                              <td style={{ color: 'var(--on-surface-variant)', fontSize: '0.875rem', maxWidth: '350px', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{item.description}</td>
+                              <td style={{ textAlign: 'center' }}>
+                                <button className="button-tertiary" style={{ padding: '0.4rem 0.8rem', fontSize: '0.75rem', background: 'var(--surface-high)', borderRadius: '4px' }} onClick={() => setSharePreviewStory(item)}>
+                                  <Share2 size={14} /> Ön İzle
+                                </button>
+                              </td>
+                            </tr>
+                          )}
+                        </React.Fragment>
+                      ))}
+                    </tbody>
+                  </table>
+                  <div style={{ padding: '1rem 2rem', borderTop: '1px solid var(--outline-variant)' }}> {renderPagination()} </div>
+                </>
+              )}
             </div>
           </div>
         </section>
@@ -475,7 +671,12 @@ function App() {
       {selectedStory && (
         <div className="modal-overlay" onClick={() => setSelectedStory(null)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <div style={{ position: 'absolute', top: '1.5rem', right: '4rem', display: 'flex', gap: '0.5rem' }}>
+            <div style={{ position: 'absolute', top: '1.5rem', right: '4rem', display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+              <div style={{ display: 'flex', gap: '0.2rem', background: 'var(--surface-low)', padding: '0.2rem', borderRadius: '8px', border: '1px solid var(--outline-variant)', marginRight: '1rem' }}>
+                {[{ code: 'tr', label: 'TR', name: 'Türkçe' }, { code: 'en', label: 'EN', name: 'English' }, { code: 'de', label: 'DE', name: 'Deutsch' }, { code: 'es', label: 'ES', name: 'Español' }].map(lang => (
+                  <button key={lang.code} onClick={() => setModalLang(lang.code)} style={{ background: modalLang === lang.code ? 'var(--primary-container)' : 'transparent', color: modalLang === lang.code ? 'var(--on-primary)' : 'var(--on-surface-variant)', border: 'none', padding: '0.3rem 0.6rem', borderRadius: '4px', fontFamily: 'var(--font-functional)', fontWeight: '600', fontSize: '0.75rem', cursor: 'pointer', transition: 'all 0.2s ease' }} title={lang.name}> {lang.label} </button>
+                ))}
+              </div>
               <button className="button-primary" style={{ padding: '0.5rem 1rem' }} onClick={() => handleShare(selectedStory)}>
                 <Share2 size={16} /> Paylaş
               </button>
@@ -483,10 +684,10 @@ function App() {
             </div>
             <div style={{ marginBottom: '2rem' }}>
               <span style={{ fontSize: '0.875rem', color: 'var(--primary)', textTransform: 'uppercase', letterSpacing: '0.05em', fontFamily: 'var(--font-functional)', fontWeight: '500', display: 'block', marginBottom: '0.5rem' }}> Hikaye Kodu: {selectedStory.book_no} </span>
-              <h2 style={{ fontSize: '3rem', lineHeight: '1.2', marginBottom: '1rem' }}>{selectedStory.title}</h2>
-              <p style={{ fontSize: '1.25rem', color: 'var(--on-surface-variant)', fontStyle: 'italic', borderLeft: '2px solid var(--primary)', paddingLeft: '1rem' }}> {selectedStory.description} </p>
+              <h2 style={{ fontSize: '3rem', lineHeight: '1.2', marginBottom: '1rem' }}>{selectedStoryTranslations[modalLang]?.title || selectedStory.title}</h2>
+              <p style={{ fontSize: '1.25rem', color: 'var(--on-surface-variant)', fontStyle: 'italic', borderLeft: '2px solid var(--primary)', paddingLeft: '1rem' }}> {selectedStoryTranslations[modalLang]?.description || selectedStory.description} </p>
             </div>
-            <div style={{ fontSize: '1.125rem', lineHeight: '1.8', color: 'var(--on-surface)' }}> {renderStoryContent(selectedStory.content)} </div>
+            <div style={{ fontSize: '1.125rem', lineHeight: '1.8', color: 'var(--on-surface)' }}> {renderStoryContent(selectedStoryTranslations[modalLang]?.content || selectedStory.content)} </div>
           </div>
         </div>
       )}
@@ -495,14 +696,14 @@ function App() {
         <div className="modal-overlay" onClick={() => setSharePreviewStory(null)}>
           <div className="modal-content" style={{ maxWidth: '500px', padding: '0', background: 'transparent', border: 'none', boxShadow: 'none' }} onClick={(e) => e.stopPropagation()}>
             <button className="modal-close" style={{ top: '-3rem', right: '0', color: '#fff' }} onClick={() => setSharePreviewStory(null)}> <X size={32} /> </button>
-            
+
             <div className="share-card-container">
               <div className="share-card-artistic" ref={shareCardRef}>
                 <div className="share-card-header">
                   <div className="share-card-logo">KIVILCIM</div>
                   <div className="share-card-id">#{sharePreviewStory.book_no}</div>
                 </div>
-                
+
                 <div className="share-card-body">
                   <h3 className="share-card-title">{sharePreviewStory.title}</h3>
                   <div className="share-card-divider"></div>
@@ -510,7 +711,7 @@ function App() {
                     {extractMainIdea(sharePreviewStory.content) || sharePreviewStory.description}
                   </p>
                 </div>
-                
+
                 <div className="share-card-footer">
                   <div className="share-card-book-info">
                     <span className="share-card-book-title">{sharePreviewStory.book_title}</span>
@@ -521,7 +722,7 @@ function App() {
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="share-card-decoration">
                   <div className="deco-spark">✦</div>
                 </div>
