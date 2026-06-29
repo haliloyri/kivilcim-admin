@@ -5,7 +5,8 @@ const sqlite3 = require('sqlite3').verbose();
 const xlsx = require('xlsx');
 const path = require('path');
 const fs = require('fs');
-
+require('dotenv').config();
+const { createClient } = require('@supabase/supabase-js');
 const app = express();
 app.use(cors());
 app.use(express.json());
@@ -454,6 +455,93 @@ app.post('/api/translate-categories-batch', async (req, res) => {
     const { limit } = req.body;
     const result = await translateService.translateCategoriesBatch(null, limit);
     res.json(result);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.post('/api/sync-supabase', async (req, res) => {
+  try {
+    const supabaseUrl = process.env.SUPABASE_URL;
+    const supabaseKey = process.env.SUPABASE_KEY;
+
+    if (!supabaseUrl || !supabaseKey) {
+      return res.status(500).json({ error: 'Supabase credentials are missing.' });
+    }
+
+    const supabase = createClient(supabaseUrl, supabaseKey);
+
+    const getTableData = (table) => {
+      return new Promise((resolve, reject) => {
+        db.all(`SELECT * FROM ${table}`, [], (err, rows) => {
+          if (err) reject(err);
+          else resolve(rows);
+        });
+      });
+    };
+
+    const results = {};
+    const tables = [
+      'main_categories',
+      'sub_categories',
+      'books',
+      'book_translations',
+      'stories',
+      'story_translations'
+    ];
+
+    for (const table of tables) {
+      const data = await getTableData(table);
+      if (data.length > 0) {
+        // Upsert data to Supabase
+        const { error } = await supabase.from(table).upsert(data);
+        if (error) {
+          throw new Error(`Error syncing ${table}: ${error.message}`);
+        }
+        results[table] = data.length;
+      } else {
+        results[table] = 0;
+      }
+    }
+
+    res.json({ message: 'Senkronizasyon başarılı', results });
+  } catch (err) {
+    console.error('Supabase Sync Error:', err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+const SUPABASE_VIEWER_TABLES = [
+  'stories', 'profiles', 'push_tokens',
+  'main_categories', 'sub_categories',
+  'books', 'book_translations', 'story_translations'
+];
+
+app.get('/api/supabase-counts', async (req, res) => {
+  try {
+    const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
+    const counts = {};
+    for (const t of SUPABASE_VIEWER_TABLES) {
+      const { count, error } = await supabase.from(t).select('*', { count: 'exact', head: true });
+      counts[t] = error ? 0 : (count || 0);
+    }
+    res.json(counts);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.get('/api/supabase-table/:name', async (req, res) => {
+  const { name } = req.params;
+  if (!SUPABASE_VIEWER_TABLES.includes(name)) {
+    return res.status(400).json({ error: 'Geçersiz tablo adı.' });
+  }
+  const limit = Math.min(parseInt(req.query.limit) || 500, 5000);
+  try {
+    const supabase = createClient(process.env.SUPABASE_URL, process.env.SUPABASE_KEY);
+    const { data, error } = await supabase.from(name).select('*').limit(limit);
+    if (error) throw new Error(error.message);
+    res.json({ rows: data || [] });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

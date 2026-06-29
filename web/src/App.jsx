@@ -1,10 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import { UploadCloud, CheckCircle2, AlertCircle, BookOpen, Layers, Users, FileText, ChevronLeft, ChevronRight, Search, X, Trash2, ArrowUpDown, ArrowUp, ArrowDown, Share2, DownloadCloud, Sparkles } from 'lucide-react';
+import { UploadCloud, CheckCircle2, AlertCircle, BookOpen, Layers, Users, FileText, ChevronLeft, ChevronRight, Search, X, Trash2, ArrowUpDown, ArrowUp, ArrowDown, Share2, DownloadCloud, Sparkles, Database, Cloud, HardDrive, Table, ChevronDown, RefreshCw } from 'lucide-react';
 import { toPng } from 'html-to-image';
 import './index.css';
 
 function App() {
-  const [activeTab, setActiveTab] = useState('kitap'); // kitap, yazar, kategori, hikaye
+  const [activeTab, setActiveTab] = useState('kitap'); // kitap, yazar, kategori, hikaye, ceviri, supabase
+  const [activeSection, setActiveSection] = useState('localdb'); // 'localdb' | 'supabase'
+  const [supabaseOpenSection, setSupabaseOpenSection] = useState(true);
+  const [localDbOpenSection, setLocalDbOpenSection] = useState(true);
+  // Supabase tables viewer
+  const [supaTableActive, setSupaTableActive] = useState(null); // null | table name
+  const [supaTableData, setSupaTableData] = useState([]);
+  const [supaTableLoading, setSupaTableLoading] = useState(false);
+  const [supaTableCols, setSupaTableCols] = useState([]);
+  const [supaTableCounts, setSupaTableCounts] = useState({});
+  // Supabase stories specific viewer
+  const [supaStoriesLang, setSupaStoriesLang] = useState('tr');
+  const [supaStoriesSearch, setSupaStoriesSearch] = useState('');
+  const [supaStoriesDetail, setSupaStoriesDetail] = useState(null); // selected story_id
+  const [supaStoriesDetailLang, setSupaStoriesDetailLang] = useState('tr');
+  const [supaStoriesDetailTab, setSupaStoriesDetailTab] = useState('icerik'); // 'icerik' | 'sohbet'
   const [selectedStory, setSelectedStory] = useState(null);
   const [modalLang, setModalLang] = useState('tr');
   const [selectedStoryTranslations, setSelectedStoryTranslations] = useState({});
@@ -30,6 +45,8 @@ function App() {
   });
   const [translationLogs, setTranslationLogs] = useState({ stories: [], books: [], categories: [] });
   const [isTranslating, setIsTranslating] = useState({ stories: false, books: false, categories: false });
+  const [isSyncing, setIsSyncing] = useState(false);
+  const [syncLogs, setSyncLogs] = useState([]);
 
   // Filters for tabs
   const [filterAuthor, setFilterAuthor] = useState(null);
@@ -56,8 +73,20 @@ function App() {
     });
   };
 
+  const SUPABASE_TABLES = [
+    { name: 'stories',           label: 'Hikayeler',         icon: '📖' },
+    { name: 'profiles',          label: 'Kullanıcılar',      icon: '👤' },
+    { name: 'push_tokens',       label: 'Push Token',        icon: '🔔' },
+    { name: 'main_categories',   label: 'Ana Kategoriler',   icon: '🗂' },
+    { name: 'sub_categories',    label: 'Alt Kategoriler',   icon: '📂' },
+    { name: 'books',             label: 'Kitaplar',          icon: '📚' },
+    { name: 'book_translations', label: 'Kitap Çevirileri',  icon: '🌐' },
+    { name: 'story_translations',label: 'Hikaye Çevirileri', icon: '✍️' },
+  ];
+
   useEffect(() => {
     fetchData();
+    fetchSupabaseCounts();
 
     const handleScroll = () => {
       const scrollPx = document.documentElement.scrollTop;
@@ -69,6 +98,37 @@ function App() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const fetchSupabaseCounts = async () => {
+    try {
+      const res = await fetch('http://localhost:3001/api/supabase-counts');
+      if (res.ok) setSupaTableCounts(await res.json());
+    } catch (e) { /* silent */ }
+  };
+
+  const openSupabaseTable = async (tableName, initialSearch = '') => {
+    setActiveSection('supabase');
+    setSupaTableActive(tableName);
+    setSupaTableLoading(true);
+    setSupaTableData([]);
+    setSupaTableCols([]);
+    setSupaStoriesDetail(null);
+    setSupaStoriesSearch(initialSearch);
+    try {
+      // For stories table, fetch all rows (all langs)
+      const limit = tableName === 'stories' ? 5000 : 500;
+      const res = await fetch(`http://localhost:3001/api/supabase-table/${tableName}?limit=${limit}`);
+      const json = await res.json();
+      if (res.ok && Array.isArray(json.rows)) {
+        setSupaTableData(json.rows);
+        setSupaTableCols(json.rows.length > 0 ? Object.keys(json.rows[0]) : []);
+      }
+    } catch (e) {
+      console.error(e);
+    } finally {
+      setSupaTableLoading(false);
+    }
+  };
 
   useEffect(() => {
     fetchData();
@@ -209,6 +269,26 @@ function App() {
         </div>
       </div>
     );
+  };
+
+  const handleSupabaseSync = async () => {
+    setIsSyncing(true);
+    setSyncLogs(['Supabase senkronizasyonu başlatıldı...']);
+    try {
+      const res = await fetch('http://localhost:3001/api/sync-supabase', { method: 'POST' });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || 'Bilinmeyen bir hata oluştu');
+
+      const newLogs = ['Senkronizasyon başarıyla tamamlandı!'];
+      for (const [table, count] of Object.entries(data.results)) {
+        newLogs.push(`> ${table}: ${count} kayıt başarıyla aktarıldı.`);
+      }
+      setSyncLogs(prev => [...prev, ...newLogs]);
+    } catch (err) {
+      setSyncLogs(prev => [...prev, `Hata: ${err.message}`]);
+    } finally {
+      setIsSyncing(false);
+    }
   };
 
   const handleFileChange = (e) => {
@@ -485,14 +565,68 @@ function App() {
             {message.text && (
               <div style={{ padding: '1rem', borderRadius: '8px', backgroundColor: message.type === 'error' ? 'rgba(231, 76, 60, 0.1)' : 'rgba(46, 204, 113, 0.1)', color: message.type === 'error' ? '#e74c3c' : '#2ecc71', display: 'flex', alignItems: 'center', gap: '0.5rem', fontFamily: 'var(--font-functional)', fontSize: '0.875rem' }}> {message.type === 'error' ? <AlertCircle size={18} /> : <CheckCircle2 size={18} />} {message.text} </div>
             )}
-            <div style={{ marginTop: '2rem', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-              <h3 style={{ fontSize: '1rem', color: 'var(--on-surface-variant)', marginBottom: '0.5rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Gezinme</h3>
-              <button className={`tab-button ${activeTab === 'kitap' ? 'active' : ''}`} onClick={() => navigateToTab('kitap')}> <BookOpen size={18} /> Kitaplar </button>
-              <button className={`tab-button ${activeTab === 'kategori' ? 'active' : ''}`} onClick={() => navigateToTab('kategori')}> <Layers size={18} /> Kategoriler </button>
-              <button className={`tab-button ${activeTab === 'yazar' ? 'active' : ''}`} onClick={() => navigateToTab('yazar')}> <Users size={18} /> Yazarlar </button>
-              <button className={`tab-button ${activeTab === 'hikaye' ? 'active' : ''}`} onClick={() => navigateToTab('hikaye')}> <FileText size={18} /> Hikayeler </button>
-              <button className={`tab-button ${activeTab === 'ceviri' ? 'active' : ''}`} onClick={() => navigateToTab('ceviri')}> <Sparkles size={18} /> Çeviri İşlemleri </button>
-              <div style={{ marginTop: 'auto', paddingTop: '2rem', borderTop: '1px solid var(--outline-variant)' }}>
+            
+            <div style={{ marginTop: '2rem', display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+
+              {/* ── Supabase DB Section ── */}
+              <button
+                onClick={() => setSupabaseOpenSection(v => !v)}
+                style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', background: 'none', border: 'none', cursor: 'pointer', padding: '0.6rem 0.5rem', borderRadius: '8px', color: 'var(--on-surface-variant)', fontSize: '0.7rem', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.08em', fontFamily: 'var(--font-functional)' }}
+              >
+                <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><Cloud size={14} color="#7c6af7" /> Supabase DB</span>
+                <ChevronDown size={14} style={{ transform: supabaseOpenSection ? 'rotate(0deg)' : 'rotate(-90deg)', transition: 'transform 0.2s' }} />
+              </button>
+
+              {supabaseOpenSection && (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.15rem', paddingLeft: '0.75rem', marginBottom: '0.75rem' }}>
+                  {SUPABASE_TABLES.map(t => (
+                    <button
+                      key={t.name}
+                      className={`tab-button ${activeSection === 'supabase' && supaTableActive === t.name ? 'active' : ''}`}
+                      style={{ fontSize: '0.82rem', padding: '0.45rem 0.75rem', justifyContent: 'space-between' }}
+                      onClick={() => openSupabaseTable(t.name)}
+                    >
+                      <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                        <span style={{ fontSize: '0.9rem' }}>{t.icon}</span>
+                        {t.label}
+                      </span>
+                      {supaTableCounts[t.name] !== undefined && (
+                        <span style={{ fontSize: '0.7rem', background: 'var(--surface-highest)', color: 'var(--on-surface-variant)', padding: '0.1rem 0.4rem', borderRadius: '10px', fontFamily: 'var(--font-functional)' }}>
+                          {supaTableCounts[t.name].toLocaleString()}
+                        </span>
+                      )}
+                    </button>
+                  ))}
+                  <button
+                    className={`tab-button ${activeSection === 'supabase' && supaTableActive === '__sync' ? 'active' : ''}`}
+                    style={{ fontSize: '0.82rem', padding: '0.45rem 0.75rem', marginTop: '0.25rem' }}
+                    onClick={() => { setActiveSection('supabase'); setSupaTableActive('__sync'); }}
+                  >
+                    <RefreshCw size={14} /> Supabase Eşitle
+                  </button>
+                </div>
+              )}
+
+              {/* ── Local DB Section ── */}
+              <button
+                onClick={() => setLocalDbOpenSection(v => !v)}
+                style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%', background: 'none', border: 'none', cursor: 'pointer', padding: '0.6rem 0.5rem', borderRadius: '8px', color: 'var(--on-surface-variant)', fontSize: '0.7rem', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.08em', fontFamily: 'var(--font-functional)' }}
+              >
+                <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}><HardDrive size={14} color="#f7a36a" /> Local DB</span>
+                <ChevronDown size={14} style={{ transform: localDbOpenSection ? 'rotate(0deg)' : 'rotate(-90deg)', transition: 'transform 0.2s' }} />
+              </button>
+
+              {localDbOpenSection && (
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.15rem', paddingLeft: '0.75rem', marginBottom: '0.75rem' }}>
+                  <button className={`tab-button ${activeSection === 'localdb' && activeTab === 'kitap' ? 'active' : ''}`} style={{ fontSize: '0.82rem', padding: '0.45rem 0.75rem' }} onClick={() => { setActiveSection('localdb'); navigateToTab('kitap'); }}><BookOpen size={15} /> Kitaplar</button>
+                  <button className={`tab-button ${activeSection === 'localdb' && activeTab === 'kategori' ? 'active' : ''}`} style={{ fontSize: '0.82rem', padding: '0.45rem 0.75rem' }} onClick={() => { setActiveSection('localdb'); navigateToTab('kategori'); }}><Layers size={15} /> Kategoriler</button>
+                  <button className={`tab-button ${activeSection === 'localdb' && activeTab === 'yazar' ? 'active' : ''}`} style={{ fontSize: '0.82rem', padding: '0.45rem 0.75rem' }} onClick={() => { setActiveSection('localdb'); navigateToTab('yazar'); }}><Users size={15} /> Yazarlar</button>
+                  <button className={`tab-button ${activeSection === 'localdb' && activeTab === 'hikaye' ? 'active' : ''}`} style={{ fontSize: '0.82rem', padding: '0.45rem 0.75rem' }} onClick={() => { setActiveSection('localdb'); navigateToTab('hikaye'); }}><FileText size={15} /> Hikayeler</button>
+                  <button className={`tab-button ${activeSection === 'localdb' && activeTab === 'ceviri' ? 'active' : ''}`} style={{ fontSize: '0.82rem', padding: '0.45rem 0.75rem' }} onClick={() => { setActiveSection('localdb'); navigateToTab('ceviri'); }}><Sparkles size={15} /> Çeviri İşlemleri</button>
+                </div>
+              )}
+
+              <div style={{ marginTop: 'auto', paddingTop: '1.5rem', borderTop: '1px solid var(--outline-variant)' }}>
                 <button className="button-danger" onClick={handleClearData} disabled={loading} style={{ width: '100%', fontSize: '0.8rem' }}> <Trash2 size={16} /> Kataloğu Sıfırla </button>
               </div>
             </div>
@@ -501,8 +635,15 @@ function App() {
           <div className="card-highest" style={{ padding: '0', backgroundColor: 'var(--surface-lowest)' }}>
             <div style={{ padding: '2rem 3rem', borderBottom: '1px solid var(--outline-variant)' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1.5rem', flexWrap: 'wrap', gap: '1rem' }}>
-                <h2 style={{ fontSize: '2rem', display: 'flex', alignItems: 'center', gap: '1rem', textTransform: 'capitalize', margin: 0 }}> {activeTab === 'kitap' ? 'Kitaplar' : activeTab === 'kategori' ? 'Kategoriler' : activeTab === 'yazar' ? 'Yazarlar' : activeTab === 'ceviri' ? 'AI Çeviri İşlemleri' : 'Hikayeler'} {activeTab !== 'ceviri' && <span style={{ fontSize: '1rem', color: 'var(--on-surface-variant)', fontFamily: 'var(--font-functional)', fontWeight: '500' }}> {activeTab === 'kategori' ? categories.length : dataList.length} Toplam Kayıt </span>} </h2>
-                {activeTab !== 'ceviri' && activeTab !== 'kategori' && (
+                <h2 style={{ fontSize: '2rem', display: 'flex', alignItems: 'center', gap: '1rem', textTransform: 'capitalize', margin: 0 }}>
+                  {activeSection === 'supabase' && supaTableActive && supaTableActive !== '__sync' ? (
+                    <><Cloud size={24} color="#7c6af7" /> {SUPABASE_TABLES.find(t => t.name === supaTableActive)?.label || supaTableActive} <span style={{ fontSize: '1rem', color: 'var(--on-surface-variant)', fontFamily: 'var(--font-functional)', fontWeight: '500' }}>{supaTableData.length} Kayıt</span></>
+                  ) : activeSection === 'supabase' && supaTableActive === '__sync' ? (
+                    <><RefreshCw size={24} color="#7c6af7" /> Supabase Eşitleme</>
+                  ) : activeTab === 'kitap' ? 'Kitaplar' : activeTab === 'kategori' ? 'Kategoriler' : activeTab === 'yazar' ? 'Yazarlar' : activeTab === 'ceviri' ? 'AI Çeviri İşlemleri' : 'Hikayeler'}
+                  {activeSection === 'localdb' && activeTab !== 'ceviri' && <span style={{ fontSize: '1rem', color: 'var(--on-surface-variant)', fontFamily: 'var(--font-functional)', fontWeight: '500' }}> {activeTab === 'kategori' ? categories.length : dataList.length} Toplam Kayıt </span>}
+                </h2>
+                {activeSection === 'localdb' && activeTab !== 'ceviri' && activeTab !== 'kategori' && (
                   <div className="input-group" style={{ flexDirection: 'row', alignItems: 'center', background: 'var(--surface-low)', borderRadius: '8px', padding: '0.2rem 1rem', border: '1px solid var(--outline-variant)' }}>
                     <Search size={18} color="var(--on-surface-variant)" />
                     <input type="text" placeholder="Tüm alanlarda ara..." value={searchQuery} onChange={(e) => { setSearchQuery(e.target.value); setCurrentPage(1); }} style={{ background: 'transparent', border: 'none', color: 'var(--on-surface)', padding: '0.5rem', outline: 'none', fontFamily: 'var(--font-functional)', minWidth: '250px' }} />
@@ -518,7 +659,272 @@ function App() {
             </div>
 
             <div className="table-container">
-              {activeTab === 'ceviri' ? (
+              {activeSection === 'supabase' ? (
+                supaTableActive === '__sync' ? (
+                  <div style={{ padding: '2rem 3rem' }}>
+                    <div style={{ background: 'var(--surface-low)', padding: '2rem', borderRadius: '12px', border: '1px solid var(--outline-variant)' }}>
+                      <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem', color: 'var(--primary)' }}>Supabase Veritabanı Senkronizasyonu</h3>
+                      <p style={{ color: 'var(--on-surface-variant)', marginBottom: '2rem', lineHeight: '1.6' }}>
+                        Bu işlem, yerel SQLite veritabanındaki tüm güncel verileri Supabase sunucusuna aktarır.
+                        Sadece farklı veya yeni olan veriler Supabase üzerinde güncellenir.
+                      </p>
+                      <button
+                        className="button-primary"
+                        onClick={handleSupabaseSync}
+                        disabled={isSyncing}
+                        style={{ padding: '1rem 2rem', fontSize: '1.1rem', width: '100%', maxWidth: '300px' }}
+                      >
+                        <Database size={20} style={{ marginRight: '0.5rem' }} />
+                        {isSyncing ? 'Senkronize Ediliyor...' : 'Verileri Eşitle (Sync)'}
+                      </button>
+                      {syncLogs.length > 0 && (
+                        <div style={{ background: '#0a0a0a', border: '1px solid var(--outline-variant)', borderRadius: '8px', padding: '1rem', height: '250px', overflowY: 'auto', fontFamily: 'monospace', fontSize: '0.875rem', color: '#00ffcc', marginTop: '2rem' }}>
+                          {syncLogs.map((log, index) => (
+                            <div key={index} style={{ marginBottom: '0.5rem' }}>{log.startsWith('>') ? log : `> ${log}`}</div>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                ) : supaTableActive === 'stories' ? (
+                  // ── Supabase Stories: Custom List + Detail ─────────────────
+                  <div style={{ display: 'flex', height: '100%', minHeight: '600px' }}>
+                    {/* LEFT: List */}
+                    <div style={{ flex: supaStoriesDetail ? '0 0 420px' : '1', borderRight: supaStoriesDetail ? '1px solid var(--outline-variant)' : 'none', display: 'flex', flexDirection: 'column', overflow: 'hidden', transition: 'flex 0.3s' }}>
+                      {/* Lang filter + search */}
+                      <div style={{ padding: '1rem 1.5rem', borderBottom: '1px solid var(--outline-variant)', display: 'flex', gap: '0.75rem', alignItems: 'center', flexWrap: 'wrap', background: 'var(--surface-low)' }}>
+                        <div style={{ display: 'flex', gap: '0.25rem', background: 'var(--surface-highest)', padding: '0.25rem', borderRadius: '8px', border: '1px solid var(--outline-variant)' }}>
+                          {['tr','en','de','es'].map(l => (
+                            <button key={l} onClick={() => { setSupaStoriesLang(l); setSupaStoriesDetail(null); }}
+                              style={{ padding: '0.3rem 0.7rem', borderRadius: '5px', border: 'none', cursor: 'pointer', fontWeight: '700', fontSize: '0.75rem', fontFamily: 'var(--font-functional)', background: supaStoriesLang === l ? 'var(--primary-container)' : 'transparent', color: supaStoriesLang === l ? 'var(--on-primary)' : 'var(--on-surface-variant)', transition: 'all 0.15s' }}>
+                              {l.toUpperCase()}
+                            </button>
+                          ))}
+                        </div>
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', background: 'var(--surface-low)', border: '1px solid var(--outline-variant)', borderRadius: '8px', padding: '0.25rem 0.75rem', flex: 1 }}>
+                          <Search size={14} color="var(--on-surface-variant)" />
+                          <input type="text" placeholder="Başlık, yazar, kitap ara..." value={supaStoriesSearch} onChange={e => setSupaStoriesSearch(e.target.value)}
+                            style={{ background: 'transparent', border: 'none', outline: 'none', color: 'var(--on-surface)', fontFamily: 'var(--font-functional)', fontSize: '0.85rem', width: '100%' }} />
+                          {supaStoriesSearch && <button onClick={() => setSupaStoriesSearch('')} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--on-surface-variant)', lineHeight: 1 }}><X size={14} /></button>}
+                        </div>
+                      </div>
+                      {/* Stories list */}
+                      {supaTableLoading ? (
+                        <div style={{ textAlign: 'center', padding: '4rem', color: 'var(--on-surface-variant)' }}>Yükleniyor...</div>
+                      ) : (() => {
+                        const filtered = supaTableData
+                          .filter(r => r.lang === supaStoriesLang)
+                          .filter(r => !supaStoriesSearch || [r.title, r.author, r.source_book, r.category_name, r.parent_cat].some(v => v && v.toLowerCase().includes(supaStoriesSearch.toLowerCase())));
+                        return filtered.length === 0 ? (
+                          <div style={{ textAlign: 'center', padding: '4rem', color: 'var(--on-surface-variant)' }}>Kayıt bulunamadı.</div>
+                        ) : (
+                          <div style={{ overflowY: 'auto', flex: 1 }}>
+                            <table className="admin-table" style={{ tableLayout: 'fixed' }}>
+                              <thead>
+                                <tr>
+                                  <th style={{ width: '50px' }}>ID</th>
+                                  <th>Başlık</th>
+                                  <th style={{ width: '130px' }}>Yazar</th>
+                                  <th style={{ width: '100px' }}>Kategori</th>
+                                  <th style={{ width: '50px' }}>Yıl</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {filtered.map((row) => (
+                                  <tr key={row.id}
+                                    onClick={() => { setSupaStoriesDetail(row.story_id); setSupaStoriesDetailLang(supaStoriesLang); }}
+                                    style={{ cursor: 'pointer', background: supaStoriesDetail === row.story_id ? 'rgba(124,106,247,0.12)' : undefined, transition: 'background 0.15s' }}
+                                    onMouseEnter={e => { if (supaStoriesDetail !== row.story_id) e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; }}
+                                    onMouseLeave={e => { if (supaStoriesDetail !== row.story_id) e.currentTarget.style.background = ''; }}
+                                  >
+                                    <td style={{ color: 'var(--primary)', fontWeight: '600', fontSize: '0.8rem' }}>{row.story_id}</td>
+                                    <td style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: 0, fontSize: '0.88rem' }} title={row.title}>{row.title}</td>
+                                    <td style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: 0, fontSize: '0.8rem', color: 'var(--on-surface-variant)' }} title={row.author}>{row.author}</td>
+                                    <td style={{ overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', maxWidth: 0, fontSize: '0.75rem', color: 'var(--on-surface-variant)' }} title={row.category_name}>{row.category_name}</td>
+                                    <td style={{ fontSize: '0.75rem', color: 'var(--on-surface-variant)' }}>{row.publish_year}</td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                            <div style={{ padding: '0.75rem 1.5rem', color: 'var(--on-surface-variant)', fontSize: '0.8rem', borderTop: '1px solid var(--outline-variant)' }}>
+                              {filtered.length} kayıt · {supaStoriesLang.toUpperCase()} dili
+                            </div>
+                          </div>
+                        );
+                      })()}
+                    </div>
+
+                    {/* RIGHT: Detail */}
+                    {supaStoriesDetail && (() => {
+                      const allLangs = ['tr','en','de','es'];
+                      const detailRow = supaTableData.find(r => r.story_id === supaStoriesDetail && r.lang === supaStoriesDetailLang)
+                        || supaTableData.find(r => r.story_id === supaStoriesDetail);
+                      if (!detailRow) return null;
+                      const renderContent = (content) => {
+                        if (!content) return <span style={{ color: 'var(--on-surface-variant)' }}>—</span>;
+                        const regex = /(##[\s\S]*?##|\$\$[\s\S]*?\$\$|&&[\s\S]*?&&)/g;
+                        const parts = content.split(regex);
+                        return parts.map((part, i) => {
+                          if (part.startsWith('##') && part.endsWith('##')) return <div key={i} className="story-vurgu">{part.slice(2,-2)}</div>;
+                          if (part.startsWith('$$') && part.endsWith('$$')) return <div key={i} className="story-anafikir-box" style={{ margin: '1rem 0', padding: '1rem', background: 'var(--surface-high)', borderRadius: '8px', borderLeft: '3px solid var(--primary)' }}>{part.slice(2,-2)}</div>;
+                          if (part.startsWith('&&') && part.endsWith('&&')) return <div key={i} className="story-reflection-card" style={{ margin: '1rem 0' }}><div className="story-reflection-header"><span>💭</span> DÜŞÜN</div><div className="story-reflection-text">{part.slice(2,-2)}</div></div>;
+                          return part.split(/\n\n+/).map((p, j) => p.trim() && <p key={`${i}-${j}`} style={{ margin: '0.75rem 0', lineHeight: '1.7' }}>{p.trim()}</p>);
+                        });
+                      };
+
+                      const convFields = [
+                        { key: 'conv_punchline',    label: '⚡ Punchline',       desc: 'Tek cümlelik güçlü mesaj' },
+                        { key: 'conv_thirty_sec',   label: '⏱ 30 Saniye Özet',  desc: 'Kısa sözlü anlatım' },
+                        { key: 'conv_question',     label: '❓ Sohbet Sorusu',   desc: 'Tartışma başlatmak için' },
+                        { key: 'conv_key_contrast', label: '🔄 Anahtar Karşıtlık', desc: 'Ana fikri vurgulayan zıtlık' },
+                      ];
+
+                      const CopyBtn = ({ text }) => (
+                        <button
+                          onClick={() => { navigator.clipboard.writeText(text || ''); }}
+                          title="Kopyala"
+                          style={{ background: 'var(--surface-highest)', border: '1px solid var(--outline-variant)', borderRadius: '6px', padding: '0.2rem 0.5rem', cursor: 'pointer', fontSize: '0.7rem', color: 'var(--on-surface-variant)', display: 'flex', alignItems: 'center', gap: '0.3rem', flexShrink: 0 }}
+                        >
+                          📋
+                        </button>
+                      );
+
+                      return (
+                        <div style={{ flex: 1, display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+                          {/* Detail header: lang tabs + content tabs + close */}
+                          <div style={{ padding: '0.75rem 1.5rem', borderBottom: '1px solid var(--outline-variant)', background: 'var(--surface-low)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '0.75rem', flexWrap: 'wrap' }}>
+                            {/* Left: lang pills */}
+                            <div style={{ display: 'flex', gap: '0.25rem', background: 'var(--surface-highest)', padding: '0.25rem', borderRadius: '8px', border: '1px solid var(--outline-variant)' }}>
+                              {allLangs.map(l => {
+                                const exists = supaTableData.some(r => r.story_id === supaStoriesDetail && r.lang === l);
+                                return (
+                                  <button key={l} onClick={() => setSupaStoriesDetailLang(l)} disabled={!exists}
+                                    style={{ padding: '0.3rem 0.7rem', borderRadius: '5px', border: 'none', cursor: exists ? 'pointer' : 'not-allowed', fontWeight: '700', fontSize: '0.75rem', fontFamily: 'var(--font-functional)', background: supaStoriesDetailLang === l ? 'var(--primary-container)' : 'transparent', color: supaStoriesDetailLang === l ? 'var(--on-primary)' : exists ? 'var(--on-surface-variant)' : 'var(--outline-variant)', opacity: exists ? 1 : 0.4, transition: 'all 0.15s' }}>
+                                    {l.toUpperCase()}
+                                  </button>
+                                );
+                              })}
+                            </div>
+                            {/* Middle: content type tabs */}
+                            <div style={{ display: 'flex', gap: '0.25rem', background: 'var(--surface-highest)', padding: '0.25rem', borderRadius: '8px', border: '1px solid var(--outline-variant)' }}>
+                              {[{id:'icerik', label:'📖 İçerik'}, {id:'sohbet', label:'💬 Sohbette Kullan'}].map(tab => (
+                                <button key={tab.id} onClick={() => setSupaStoriesDetailTab(tab.id)}
+                                  style={{ padding: '0.3rem 0.8rem', borderRadius: '5px', border: 'none', cursor: 'pointer', fontWeight: '600', fontSize: '0.75rem', fontFamily: 'var(--font-functional)', whiteSpace: 'nowrap', background: supaStoriesDetailTab === tab.id ? 'var(--primary-container)' : 'transparent', color: supaStoriesDetailTab === tab.id ? 'var(--on-primary)' : 'var(--on-surface-variant)', transition: 'all 0.15s' }}>
+                                  {tab.label}
+                                </button>
+                              ))}
+                            </div>
+                            <button onClick={() => setSupaStoriesDetail(null)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--on-surface-variant)', display: 'flex', alignItems: 'center' }}><X size={18} /></button>
+                          </div>
+
+                          {/* Detail body */}
+                          <div style={{ flex: 1, overflowY: 'auto', padding: '1.5rem 2rem' }}>
+                            {/* Common header (always shown) */}
+                            <div style={{ fontSize: '0.75rem', color: 'var(--primary)', textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: '0.5rem', fontFamily: 'var(--font-functional)' }}>
+                              #{detailRow.story_id} · {detailRow.author} · {detailRow.publish_year}
+                            </div>
+                            <h2 style={{ fontSize: '1.5rem', lineHeight: '1.3', marginBottom: '0.75rem' }}>{detailRow.title}</h2>
+                            <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', marginBottom: '1.25rem' }}>
+                              {detailRow.parent_cat && <span style={{ fontSize: '0.72rem', background: 'var(--surface-high)', border: '1px solid var(--outline-variant)', borderRadius: '20px', padding: '0.2rem 0.6rem', color: 'var(--on-surface-variant)' }}>{detailRow.parent_cat}</span>}
+                              {detailRow.category_name && <span style={{ fontSize: '0.72rem', background: 'var(--primary-container)', borderRadius: '20px', padding: '0.2rem 0.6rem', color: 'var(--on-primary)' }}>{detailRow.category_name}</span>}
+                              {detailRow.source_book && <span style={{ fontSize: '0.72rem', background: 'var(--surface-high)', border: '1px solid var(--outline-variant)', borderRadius: '20px', padding: '0.2rem 0.6rem', color: 'var(--on-surface-variant)' }}>📚 {detailRow.source_book}</span>}
+                              {detailRow.is_premium && <span style={{ fontSize: '0.72rem', background: '#7c6af722', border: '1px solid #7c6af7', borderRadius: '20px', padding: '0.2rem 0.6rem', color: '#7c6af7' }}>Premium</span>}
+                            </div>
+
+                            {/* TAB: İçerik */}
+                            {supaStoriesDetailTab === 'icerik' && (
+                              <>
+                                {detailRow.description && <p style={{ fontSize: '1rem', color: 'var(--on-surface-variant)', fontStyle: 'italic', borderLeft: '2px solid var(--primary)', paddingLeft: '1rem', marginBottom: '1.5rem', lineHeight: '1.6' }}>{detailRow.description}</p>}
+                                {detailRow.hook && <div style={{ background: 'var(--surface-high)', border: '1px solid var(--outline-variant)', borderRadius: '8px', padding: '0.75rem 1rem', marginBottom: '1.5rem', fontSize: '0.9rem', color: 'var(--on-surface-variant)', fontStyle: 'italic' }}>🪝 {detailRow.hook}</div>}
+                                <div style={{ fontSize: '0.95rem', lineHeight: '1.75', color: 'var(--on-surface)' }}>{renderContent(detailRow.content)}</div>
+                              </>
+                            )}
+
+                            {/* TAB: Sohbette Kullan */}
+                            {supaStoriesDetailTab === 'sohbet' && (
+                              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                                {convFields.map(({ key, label, desc }) => (
+                                  <div key={key} style={{ background: 'var(--surface-low)', border: '1px solid var(--outline-variant)', borderRadius: '10px', overflow: 'hidden' }}>
+                                    <div style={{ padding: '0.6rem 1rem', background: 'var(--surface-high)', borderBottom: '1px solid var(--outline-variant)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '0.5rem' }}>
+                                      <div>
+                                        <span style={{ fontWeight: '700', fontSize: '0.85rem', color: 'var(--on-surface)' }}>{label}</span>
+                                        <span style={{ fontSize: '0.72rem', color: 'var(--on-surface-variant)', marginLeft: '0.5rem' }}>{desc}</span>
+                                      </div>
+                                      {detailRow[key] && <CopyBtn text={detailRow[key]} />}
+                                    </div>
+                                    <div style={{ padding: '0.75rem 1rem', fontSize: '0.9rem', lineHeight: '1.6', color: detailRow[key] ? 'var(--on-surface)' : 'var(--on-surface-variant)', fontStyle: detailRow[key] ? 'normal' : 'italic', minHeight: '2.5rem' }}>
+                                      {detailRow[key] || '— Bu alan henüz doldurulmamış'}
+                                    </div>
+                                  </div>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      );
+                    })()}
+                  </div>
+                ) : supaTableActive ? (
+                  <div style={{ padding: '1rem' }}>
+                    {supaTableLoading ? (
+                      <div style={{ textAlign: 'center', padding: '4rem', color: 'var(--on-surface-variant)' }}>Yükleniyor...</div>
+                    ) : supaTableData.length === 0 ? (
+                      <div style={{ textAlign: 'center', padding: '4rem', color: 'var(--on-surface-variant)' }}>Bu tablo boş.</div>
+                    ) : (
+                      <div style={{ overflowX: 'auto' }}>
+                        <table className="admin-table">
+                          <thead>
+                            <tr>
+                              {supaTableCols.map(col => (
+                                <th key={col} style={{ whiteSpace: 'nowrap', fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{col}</th>
+                              ))}
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {supaTableData.slice(0, 100).map((row, idx) => {
+                              // Link to stories table if it's a book or category
+                              const isNavigable = ['books', 'book_translations', 'main_categories', 'sub_categories', 'sub_category_translations'].includes(supaTableActive);
+                              const handleRowClick = () => {
+                                if (!isNavigable) return;
+                                let search = '';
+                                if (supaTableActive === 'books') search = row.author || '';
+                                if (supaTableActive === 'book_translations') search = row.title || '';
+                                if (supaTableActive === 'main_categories') search = row.name_tr || row.name_en || '';
+                                if (supaTableActive === 'sub_categories') search = row.category_name || '';
+                                if (supaTableActive === 'sub_category_translations') search = row.translation || '';
+                                if (search) {
+                                  openSupabaseTable('stories', search);
+                                }
+                              };
+                              return (
+                                <tr key={idx} 
+                                  onClick={handleRowClick}
+                                  style={{ cursor: isNavigable ? 'pointer' : 'default', transition: 'background 0.15s' }}
+                                  onMouseEnter={e => { if (isNavigable) e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; }}
+                                  onMouseLeave={e => { if (isNavigable) e.currentTarget.style.background = ''; }}
+                                >
+                                  {supaTableCols.map(col => (
+                                    <td key={col} style={{ maxWidth: '300px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', fontSize: '0.82rem' }} title={String(row[col] ?? '')}>
+                                      {row[col] === null ? <span style={{ color: 'var(--on-surface-variant)', fontStyle: 'italic' }}>null</span> : String(row[col]).length > 80 ? String(row[col]).slice(0, 80) + '…' : String(row[col])}
+                                    </td>
+                                  ))}
+                                </tr>
+                              );
+                            })}
+                          </tbody>
+                        </table>
+                        {supaTableData.length > 100 && (
+                          <div style={{ padding: '1rem 2rem', color: 'var(--on-surface-variant)', fontSize: '0.85rem' }}>
+                            İlk 100 satır gösteriliyor. Toplam: {supaTableData.length}
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <div style={{ textAlign: 'center', padding: '4rem', color: 'var(--on-surface-variant)' }}>Sol menüden bir tablo seçin.</div>
+                )
+              ) : activeTab === 'ceviri' ? (
                 <div style={{ padding: '2rem 3rem' }}>
                   <div style={{ display: 'flex', flexWrap: 'wrap', gap: '2rem', alignItems: 'stretch' }}>
                     {renderTranslationSection('Kitap Çevirisi', 'books', 'translate-books-batch', 20, 'kitap', "Kitap isimleri kısa olduğu için 20'şerli çevrilir.")}
